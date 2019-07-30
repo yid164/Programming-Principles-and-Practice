@@ -1,0 +1,123 @@
+----
+3(a)
+----
+
+bash-4.3$ make power
+g++ -Wall -Wextra    power.cc   -o power
+bash-4.3$ ./power infile.txt
+4 to the power of 5 is 1440
+Segmentation fault (core dumped)
+bash-4.3$ ls core.*
+core.41741
+
+----
+3(b)
+----
+
+tux4(42)% vi makefile
+tux4(43)% make -W power.cc
+g++ -Wall -Wextra -g    power.cc   -o power
+
+----
+3(f)
+----
+
+tux4(13)% gdb power
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from power...done.
+(gdb) break calc_pow
+Breakpoint 1 at 0x400840: file power.cc, line 38.
+(gdb) run infile.txt
+Starting program: /faculty/kusalik/lab10/power infile.txt
+
+Breakpoint 1, calc_pow (num=4, pow=5) at power.cc:38
+38		if ( pow == 0 ) {
+(gdb) display num
+1: num = 4
+(gdb) display pow
+2: pow = 5
+(gdb) c
+Continuing.
+
+Breakpoint 1, calc_pow (num=5, pow=3) at power.cc:38
+38		if ( pow == 0 ) {
+2: pow = 3
+1: num = 5
+(gdb) c
+Continuing.
+
+Breakpoint 1, calc_pow (num=3, pow=4) at power.cc:38
+38		if ( pow == 0 ) {
+2: pow = 4
+1: num = 3
+(gdb) c
+Continuing.
+
+Breakpoint 1, calc_pow (num=4, pow=2) at power.cc:38
+38		if ( pow == 0 ) {
+2: pow = 2
+1: num = 4
+(gdb) bt
+#0  calc_pow (num=4, pow=2) at power.cc:38
+#1  0x000000000040085f in calc_pow (num=3, pow=4) at power.cc:42
+#2  0x000000000040085f in calc_pow (num=5, pow=3) at power.cc:42
+#3  0x000000000040085f in calc_pow (num=4, pow=5) at power.cc:42
+#4  0x0000000000400777 in main (argc=2, argv=0x7fffffffd8e8) at power.cc:19
+ .
+ .
+ .
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 14512] will be killed.
+
+Quit anyway? (y or n) y
+
+----
+3(h)
+----
+
+tux4(44)% gdb power
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from power...done.
+(gdb) list 18,24
+18		while (fscanf(stream, "%d %d", &number, &power) != EOF) {
+19			result = calc_pow(number, power);
+20			printf("%d to the power of %d is %d\n", number, power, result);
+21			swap(&number, &power);
+22			result = calc_pow(number, power);
+23			printf("%d to the power of %d is %d\n", number, power, result);
+24		}
+(gdb) break 19
+Breakpoint 1 at 0x400768: file power.cc, line 19.
+(gdb) run < infile.txt
+Starting program: /faculty/kusalik/lab10/power < infile.txt
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffd8f8) at power.cc:19
+19			result = calc_pow(number, power);

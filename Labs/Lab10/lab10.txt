@@ -1,0 +1,346 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214 T01
+
+1.
+yid164@tux7:~> echo $GREP_OPTIONS
+
+yid164@tux7:~> env GREP_OPTIONS='-i' grep a <<<A
+A
+yid164@tux7:~> grep -i a <<<A
+A
+yid164@tux7:~> grep a <<<A
+yid164@tux7:~> echo $GREP_OPTIONS
+
+
+2.
+yid164@tux7:~> ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 515319
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+yid164@tux7:~> ulimit -c unlimited
+yid164@tux7:~> ulimit -a
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 515319
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+3.
+(a).
+yid164@tux6:~/Lab10> ls      
+Lab10Files.tar
+yid164@tux6:~/Lab10> tar -xf Lab10Files.tar 
+yid164@tux6:~/Lab10> ls
+Lab10Files.tar	infile.txt  makefile  power.cc
+yid164@tux6:~/Lab10> make
+g++ -Wall -Wextra    power.cc   -o power
+yid164@tux6:~/Lab10> ls
+Lab10Files.tar	infile.txt  makefile  power*  power.cc
+yid164@tux6:~/Lab10> ./power infile.txt
+4 to the power of 5 is 1440
+Segmentation fault (core dumped)
+yid164@tux6:~/Lab10> ls
+Lab10Files.tar	core.53750  infile.txt	makefile  power*  power.cc
+
+(b)
+yid164@tux7:~/Lab10> make -W power.cc
+g++ -Wall -Wextra -g    power.cc   -o power
+
+(c)
+yid164@tux7:~/Lab10> gdb power
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from power...done.
+(gdb) run infile.txt
+Starting program: /tmp_mnt/student/yid164/Lab10/power infile.txt
+4 to the power of 5 is 1440
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000400824 in swap (a=0x7fffffffdde0, b=0x7fffffffdddc) at power.cc:32
+32		*tmp = *a;
+(gdb) backtrace full
+#0  0x0000000000400824 in swap (a=0x7fffffffdde0, b=0x7fffffffdddc)
+    at power.cc:32
+        tmp = 0x0
+#1  0x00000000004007a7 in main (argc=2, argv=0x7fffffffded8) at power.cc:21
+        number = 4
+        power = 5
+        result = 1440
+        in_stream = 0x602010
+
+(d)
+(gdb) list 32
+27	}
+28	
+29	void swap(int *a, int *b) {
+30		int *tmp=NULL;
+31	
+32		*tmp = *a;
+33		*a = *b;
+34		*b = *tmp;
+35	}
+36	
+(gdb) print *a
+$1 = 4
+(gdb) print *b
+$2 = 5
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 8653] will be killed.
+
+Quit anyway? (y or n) y
+
+(e)
+yid164@tux6:~/Lab10> make
+g++ -Wall -Wextra -g    power.cc   -o power
+yid164@tux6:~/Lab10> ./power infile.txt
+4 to the power of 5 is 1440
+5 to the power of 4 is 2880
+6 to the power of 2 is 60
+2 to the power of 6 is 12
+3 to the power of 7 is 252
+7 to the power of 3 is 1260
+1 to the power of 7 is 1
+7 to the power of 1 is 7
+2 to the power of 3 is 6
+3 to the power of 2 is 12
+0 to the power of 0 is 1
+0 to the power of 0 is 1
+0 to the power of 2 is 0
+2 to the power of 0 is 1
+2 to the power of 0 is 1
+0 to the power of 2 is 0
+
+(f)
+yid164@tux6:~/Lab10> gdb power
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from power...done.
+(gdb) break calc_pow
+Breakpoint 1 at 0x400840: file power.cc, line 38.
+(gdb) run infile.txt
+Starting program: /tmp_mnt/student/yid164/Lab10/power infile.txt
+
+Breakpoint 1, calc_pow (num=4, pow=5) at power.cc:38
+38		if ( pow == 0 ) {
+(gdb) display num
+1: num = 4
+(gdb) display pow
+2: pow = 5
+(gdb) continue
+Continuing.
+
+Breakpoint 1, calc_pow (num=5, pow=3) at power.cc:38
+38		if ( pow == 0 ) {
+2: pow = 3
+1: num = 5
+(gdb) continue
+Continuing.
+
+Breakpoint 1, calc_pow (num=3, pow=4) at power.cc:38
+38		if ( pow == 0 ) {
+2: pow = 4
+1: num = 3
+(gdb) continue
+Continuing.
+
+Breakpoint 1, calc_pow (num=4, pow=2) at power.cc:38
+38		if ( pow == 0 ) {
+2: pow = 2
+1: num = 4
+(gdb) bt
+#0  calc_pow (num=4, pow=2) at power.cc:38
+#1  0x000000000040085f in calc_pow (num=3, pow=4) at power.cc:42
+#2  0x000000000040085f in calc_pow (num=5, pow=3) at power.cc:42
+#3  0x000000000040085f in calc_pow (num=4, pow=5) at power.cc:42
+#4  0x0000000000400777 in main (argc=2, argv=0x7fffffffded8) at power.cc:19
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 23270] will be killed.
+
+Quit anyway? (y or n) y
+
+(g)
+yid164@tux6:~/Lab10> vi power.cc
+yid164@tux6:~/Lab10> make
+g++ -Wall -Wextra -g    power.cc   -o power
+yid164@tux6:~/Lab10> ./power infile.txt
+4 to the power of 5 is 1024
+5 to the power of 4 is 625
+6 to the power of 2 is 36
+2 to the power of 6 is 64
+3 to the power of 7 is 2187
+7 to the power of 3 is 343
+1 to the power of 7 is 1
+7 to the power of 1 is 7
+2 to the power of 3 is 8
+3 to the power of 2 is 9
+0 to the power of 0 is 1
+0 to the power of 0 is 1
+0 to the power of 2 is 0
+2 to the power of 0 is 1
+2 to the power of 0 is 1
+0 to the power of 2 is 0
+
+(h)
+yid164@tux6:~/Lab10> gdb power
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from power...done.
+(gdb) list 18,24
+18		while (fscanf(in_stream, "%d %d", &number, &power) != EOF) {
+19			result = calc_pow(number, power);
+20			printf("%d to the power of %d is %d\n", number, power, result);
+21			swap(&number, &power);
+22			result = calc_pow(number, power);
+23			printf("%d to the power of %d is %d\n", number, power, result);
+24		}
+(gdb) break 22
+Breakpoint 1 at 0x4007a7: file power.cc, line 22.
+(gdb) run < infile.txt
+Starting program: /tmp_mnt/student/yid164/Lab10/power < infile.txt
+4 to the power of 5 is 1024
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdee8) at power.cc:22
+22			result = calc_pow(number, power);
+
+(i)
+(gdb) p *in_stream
+$1 = {_flags = -72540024, 
+  _IO_read_ptr = 0x7ffff7ec3003 "\n6 2\n3 7\n1 7\n2 3\n0 0\n0 2\n2 0\n", 
+  _IO_read_end = 0x7ffff7ec3020 "", 
+  _IO_read_base = 0x7ffff7ec3000 "4 5\n6 2\n3 7\n1 7\n2 3\n0 0\n0 2\n2 0\n", 
+  _IO_write_base = 0x7ffff7ec3000 "4 5\n6 2\n3 7\n1 7\n2 3\n0 0\n0 2\n2 0\n", 
+  _IO_write_ptr = 0x7ffff7ec3000 "4 5\n6 2\n3 7\n1 7\n2 3\n0 0\n0 2\n2 0\n", 
+  _IO_write_end = 0x7ffff7ec3000 "4 5\n6 2\n3 7\n1 7\n2 3\n0 0\n0 2\n2 0\n", 
+  _IO_buf_base = 0x7ffff7ec3000 "4 5\n6 2\n3 7\n1 7\n2 3\n0 0\n0 2\n2 0\n", 
+  _IO_buf_end = 0x7ffff7fc3000 "\327\207\017+", _IO_save_base = 0x0, 
+  _IO_backup_base = 0x0, _IO_save_end = 0x0, _markers = 0x0, _chain = 0x0, 
+  _fileno = 0, _flags2 = 0, _old_offset = -1, _cur_column = 0, 
+  _vtable_offset = 0 '\000', _shortbuf = "", 
+  _lock = 0x7ffff75b0a50 <_IO_stdfile_0_lock>, _offset = -1, __pad1 = 0x0, 
+  __pad2 = 0x7ffff75aeb00 <_IO_wide_data_0>, __pad3 = 0x0, __pad4 = 0x0, 
+  __pad5 = 0, _mode = -1, _unused2 = '\000' <repeats 19 times>}
+(gdb) psizeof(*in_stream)
+Undefined command: "psizeof".  Try "help".
+(gdb) p sizeof(*in_stream)
+$2 = 216
+(gdb) p sizeof(in_stream)
+$3 = 8
+type = struct _IO_FILE {
+    int _flags;
+    char *_IO_read_ptr;
+    char *_IO_read_end;
+    char *_IO_read_base;
+    char *_IO_write_base;
+    char *_IO_write_ptr;
+    char *_IO_write_end;
+    char *_IO_buf_base;
+    char *_IO_buf_end;
+    char *_IO_save_base;
+    char *_IO_backup_base;
+    char *_IO_save_end;
+    _IO_marker *_markers;
+    _IO_FILE *_chain;
+    int _fileno;
+    int _flags2;
+    __off_t _old_offset;
+    unsigned short _cur_column;
+    signed char _vtable_offset;
+    char _shortbuf[1];
+    _IO_lock_t *_lock;
+    __off64_t _offset;
+    void *__pad1;
+    void *__pad2;
+    void *__pad3;
+    void *__pad4;
+    size_t __pad5;
+    int _mode;
+    char _unused2[20];
+}
+
+(j)
+(gdb) n
+23			printf("%d to the power of %d is %d\n", number, power, result);
+(gdb) continue
+Continuing.
+5 to the power of 4 is 625
+6 to the power of 2 is 36
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdee8) at power.cc:22
+22			result = calc_pow(number, power);
+(gdb) continue
+Continuing.
+2 to the power of 6 is 64
+3 to the power of 7 is 2187
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdee8) at power.cc:22
+22			result = calc_pow(number, power);
+(gdb) n
+23			printf("%d to the power of %d is %d\n", number, power, result);
+(gdb) bt
+#0  main (argc=1, argv=0x7fffffffdee8) at power.cc:23
