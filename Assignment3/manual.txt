@@ -1,0 +1,48 @@
+# Student Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+
+1. In vector.h and vector.cc, they are the basic.
+
+In vector.h I include ‘math.h’ and ‘inttypes.h’ for using uint16_t and UNIT16_MAX parameters. also, I defined a float type Elem and built a structure Vector. The Vector structure can store float elements, and Elem can using to do plus, minus, multiply, and divid operation, then I create a const integer MAX_ELEMS to control the size of vector.
+And I write the functions that vector.cc needs.
+
+In vector.cc, I include the vector.h, so that they can connect. I copy the function’s names from vector.h, then I did some implementations on this file. This file’s function is allocate vectors, deallocate vectors, making extend vectors, and printout vectors elements.
+
+alloc_vec(): allocate a new vectors, vector size is 0, no elements in it.
+dealloc_vec(): deallocate the vector, to delete vector size and every element in it
+extend_vec(): use a new vector to replace the old vector, and the new vector has every elements from old vector, and also it has 1 more size to let user to add 1 more element
+print_vec(): to print out every element in the vector by for-loop, and return false if size less than 0
+
+2. In scalar.h and scalar.cc
+
+In scalar.h, I include the vector.h because need to use they element and vector to do the plus, minus, multiply, and divide operations, and it has all functions that scalar.cc needs.
+
+In scalar.cc, it has 4 functions that user can do 4 operations, plus, minus, multi, and divide.
+
+scalar_plus(): to plus a number for every element in the vector (for-loops).
+scalar_minus(): to minus a number for every element in the vector (for-loops).
+scalar_mult(): to multiply a number for every element in the vector (for-loops).
+scalar_div(): to divide a number for every element in the vector (for-loops).
+
+3. in test_vector.cc, I include assert.h and vector.h to test vector.cc, I used 4 functions to test the all functions in the vector.cc. If all these are correct, should print out success
+
+test_alloc(): to create a new Vector by alloc_vec() function to test if the new vector are null, the size, and element in the vector.
+
+test_extend(): to create a new Vector and then adding number by extend_vec(), to test if the number that it added is correct.
+
+test_print(): to create a new Vector, and use extend_vec() to add number, then print them out by print_vec() function, and test it by if the boolean it true or false.
+
+test_dealloc(): create sone new Vectors first, and deallocate them by dealloc_vec().
+
+4. in the test_scalar.cc, I include vector.h and scalar.h for testing the scalar.cc ’s functions are correct. If all these are correct, should print out success
+
+test_scalarplus(): create a new Vector, use extend to add a number, then use scalar_plus() to plus a value, then assert element in the vector is got plus the value.
+
+test_scalarminus(): create a new Vector, use extend to add a number, then use scalar_minus() to minus a value, then assert element in the vector is got minus the value.
+
+test_scalarmult(): create a new Vector, use extend to add a number, then use scalar_mult() to multiply a value, then assert element in the vector is got multiplied or not.
+
+test_scalardiv(): create a new Vector, use extend to add a number, then use scalar_div() to divide a value, then assert element in the vector is got divided or not.

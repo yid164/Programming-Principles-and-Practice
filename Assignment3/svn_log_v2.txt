@@ -1,0 +1,84 @@
+# Student Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+
+yid164@tux5:~/tags> svn log $svntag/V2
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+------------------------------------------------------------------------
+r36 | yid164@USASK.CA | 2016-11-22 11:11:40 -0600 (Tue, 22 Nov 2016) | 1 line
+
+I just saw the marker's feedback in my previous assignment said that my 'size' identifier is used in other built-in libraries, so I changed this identifier to 'S' in every file that has it
+------------------------------------------------------------------------
+r34 | yid164@USASK.CA | 2016-11-20 21:58:11 -0600 (Sun, 20 Nov 2016) | 1 line
+
+This is the newest version can completely run
+------------------------------------------------------------------------
+r33 | yid164@USASK.CA | 2016-11-20 21:53:27 -0600 (Sun, 20 Nov 2016) | 1 line
+
+this is the makefile that combine 2 tests and vecalc, also, can clean all everything.
+------------------------------------------------------------------------
+r32 | yid164@USASK.CA | 2016-11-20 21:48:07 -0600 (Sun, 20 Nov 2016) | 1 line
+
+I also changed this file a lot too, becasue I forgot add commit for update last time, so I deleted the old version and add the new version on. In last version, I put all unit test in the main fucntion, but in this version, I divided them to outside for 4 functions: test_scalarplus(), test_scalarminus(), test_scalarmult(), test_scalardiv(), I can now test by call these functions in main functions.
+------------------------------------------------------------------------
+r31 | yid164@USASK.CA | 2016-11-20 21:41:38 -0600 (Sun, 20 Nov 2016) | 2 lines
+
+I did not write message on it
+
+------------------------------------------------------------------------
+r30 | yid164@USASK.CA | 2016-11-20 21:33:08 -0600 (Sun, 20 Nov 2016) | 1 line
+
+I changed this file a lot, becasue in last version, I put all unit test in main function, but now, I changed them to outside, I make 4 void functions to instead the old one, these are: test_extend(), test_print(), test_alloc(), test_dealloc(), now I can just call them in the mian function, and I have tested them, they are now good!
+------------------------------------------------------------------------
+r29 | yid164@USASK.CA | 2016-11-20 21:13:26 -0600 (Sun, 20 Nov 2016) | 1 line
+
+This file basicly has no change, I think it should be fine
+------------------------------------------------------------------------
+r28 | yid164@USASK.CA | 2016-11-20 21:06:16 -0600 (Sun, 20 Nov 2016) | 1 line
+
+I just changed this 2 files. In vector.h file, I add <math.h> and <inttypes.h>, and I also deleted 'int count' in the struct, and changed int size to uint16_t size. Also, I changed 'int MAX_ELEMS=65535' to'const int MAX_ELEMS=UTNT16_MAX', for fitting the original files in Assignment3file.tar.  In  vector.cc, I also changed something becasue I deleted 'int=count' in the header file. The most important change is extend_vec() function, I thought it should be a vector that change its size, but after I read the question requirement again, I think my thought is wrong, so I followed up the answer that solution, make a new vector
+------------------------------------------------------------------------
+r26 | yid164@USASK.CA | 2016-11-20 15:15:13 -0600 (Sun, 20 Nov 2016) | 1 line
+
+these 2 test are basicly from my assignment 2 code, but I think they are should be fine, even thought there are some mistakes on them, but I will fix them then
+------------------------------------------------------------------------
+r25 | yid164@USASK.CA | 2016-11-20 15:10:36 -0600 (Sun, 20 Nov 2016) | 1 line
+
+this is the 1st version for scalar.cc, the comments are from scalar.h, and the code I just copy my assignment2, also some mistakes might be exsited , I will fix them then
+------------------------------------------------------------------------
+r24 | yid164@USASK.CA | 2016-11-20 14:58:40 -0600 (Sun, 20 Nov 2016) | 1 line
+
+This is the 1st version that I wrote for vector.cc, the comments I copy from my vector.h, and it basicly same as my old code, it also might have some mistakes, but I will fix them after.
+------------------------------------------------------------------------
+r23 | yid164@USASK.CA | 2016-11-20 14:51:10 -0600 (Sun, 20 Nov 2016) | 1 line
+
+the 1st version that I wrote the vector.h, have already put some comments on it, but it might have some problems on it
+------------------------------------------------------------------------
+r22 | yid164@USASK.CA | 2016-11-20 14:21:31 -0600 (Sun, 20 Nov 2016) | 1 line
+
+This is the header file for scalar.cc, I put all the scalar functions that scalar.cc will need: 'plus', 'minus', 'mult' and 'div', also I have wrote some comments for these functions
+------------------------------------------------------------------------
+r21 | yid164@USASK.CA | 2016-11-20 14:09:01 -0600 (Sun, 20 Nov 2016) | 1 line
+
+These are files that from Assignment3File.tar, I upload them becasue of Assignment requirement said that I do not need modify them
+------------------------------------------------------------------------
+r19 | yid164@USASK.CA | 2016-11-19 23:53:22 -0600 (Sat, 19 Nov 2016) | 1 line
+
+This is the original file that name is vecalc.cc that from Assignment2, and I did some modifications on that, such as that I deleted count from Vector, and added 2 header file that are <inttypes.h> and <math.h>, also I changed the extend_vec() function, and lastly I changed TDD unit test to do more testing, so this file is a little bit different from the Assignment2 that I handed in.
+------------------------------------------------------------------------
+r16 | yid164@USASK.CA | 2016-11-19 23:05:30 -0600 (Sat, 19 Nov 2016) | 1 line
+
+wrong vecalc.cc, just for testing
+------------------------------------------------------------------------
+r14 | yid164@USASK.CA | 2016-11-19 21:21:59 -0600 (Sat, 19 Nov 2016) | 1 line
+
+This is the orignal version of vecale.cc
+------------------------------------------------------------------------
+r12 | yid164@USASK.CA | 2016-11-18 20:27:42 -0600 (Fri, 18 Nov 2016) | 1 line
+
+subdirectory for vecalc trunk
+------------------------------------------------------------------------

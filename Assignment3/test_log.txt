@@ -1,0 +1,112 @@
+# Student Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+1. vecalc testing: 
+uofs-10-227-131-39:Assignment3 Ken$ ./vecalc
+number of vector elements:  
+**no value specified
+number of vector elements: 3
+vector element 0:  
+**no value specified
+vector element 0:  
+**no value specified
+vector element 0: 1.1
+vector element 1: 1
+vector element 2: 6
+operation: p
+1.100000	1.000000	6.000000	
+operation: pr
+**illegal operation
+ Usage:
+  p   - print vector
+  q,e - quit, end
+  h   - print usage help
+  + <operand> - add <operand> to each element of vector
+  - <operand> - subtract <operand> from each element of vector
+  * <operand> - multiple each element of vector by <operand>
+  / <operand> - divide each element of vector by <operand>
+  a <value> - extend vector by additional value
+operation: +
+**no operand specified
+operation: + .3
+operation: p 
+1.400000	1.300000	6.300000	
+operation: /2
+**illegal operation
+ Usage:
+  p   - print vector
+  q,e - quit, end
+  h   - print usage help
+  + <operand> - add <operand> to each element of vector
+  - <operand> - subtract <operand> from each element of vector
+  * <operand> - multiple each element of vector by <operand>
+  / <operand> - divide each element of vector by <operand>
+  a <value> - extend vector by additional value
+operation: / 2
+operation: p
+0.700000	0.650000	3.150000	
+operation: a 56.8
+operation: p
+0.700000	0.650000	3.150000	56.799999	
+operation: c
+number of vector elements: -1
+**illegal number of elements
+number of vector elements: h
+**number not well formed
+number of vector elements: 0
+operation: c
+number of vector elements: 444444444444444444444444
+**illegal number of elements
+number of vector elements: 1
+vector element 0:                             .0
+operation: p
+0.000000	
+operation: / 0
+**divide-by-zero not allowed
+operation: v
+**operation not recognized
+operation: 
+operation: q
+uofs-10-227-131-39:Assignment3 Ken$ ./vecalc
+number of vector elements: 3
+vector element 0: 1.1
+vector element 1: 2.2
+vector element 2: 3.3
+operation: * 0
+operation: p
+0.000000	0.000000	0.000000	
+operation: c
+number of vector elements: 4
+vector element 0: +INF
+vector element 1: -INF
+vector element 2: 3
+vector element 3: 4
+operation: p
+inf	-inf	3.000000	4.000000	
+operation: + 567.8
+operation: p
+inf	-inf	570.799988	571.799988	
+operation: + +INF
+operation: p
+inf	nan	inf	inf	
+operation: e
+
+2. scalar testing
+uofs-10-227-131-39:Assignment3 Ken$ ./scalar_test
+scalar_plus() testing SUCCESS 
+scalar_minus() testing SUCCESS 
+scalar_muti() testing SUCCESS 
+scalar_div() testing SUCCESS
+
+3. vector testing
+uofs-10-227-131-39:Assignment3 Ken$ ./vector_test 
+allocate a new vector SUCCESS
+extend_vec() testing 1 SUCCESS
+extend_vec() testing 2 SUCCESS
+18.200001	
+18.200001	1.600000	
+print_vec() testing SUCCESS
+dealloc_vec() testing SUCCESS
+
