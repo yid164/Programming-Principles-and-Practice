@@ -1,0 +1,9 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+
+
+ls -d */ 2>/dev/null | cut -f1 -d '/' |tee |rs -t -c

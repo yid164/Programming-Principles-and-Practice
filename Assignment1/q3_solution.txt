@@ -1,0 +1,15 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: ydi164
+Lecture Section: CMPT 214
+
+
+
+1.
+In the q3_initial.cc, 8 line, the comment:// space for floating-point value is wrong, because it show be a char pointer
+
+2.
+We we use the if condition statement to check if we have enough arguments, we only write the 1 condition that “argc <3”, but the q3_initial.cc doesn’t gives any “else” statement.
+
+3.
+I changed the name int o to int outPut, int npvle to int inPutValue, and char *copyp to char copyPtr.

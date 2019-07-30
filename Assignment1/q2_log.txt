@@ -1,0 +1,83 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+1.
+//This is for situation 1.
+DONGYINSHENGdeMacBook-Pro:a1 Ken$ ls -l
+total 0
+-rw-r--r--  1 Ken  staff   0 Oct  9 22:44 LatePenalty.html
+drwxr-xr-x  2 Ken  staff  68 Oct  9 22:44 assignment_1
+drwxr-xr-x  2 Ken  staff  68 Oct  9 22:44 assignment_2
+drwxr-xr-x  2 Ken  staff  68 Oct  9 22:44 assignment_3
+drwxr-xr-x  2 Ken  staff  68 Oct  9 22:44 assignment_4
+-rw-r--r--  1 Ken  staff   0 Oct  9 22:44 external_documentation.txt
+-rw-r--r--  1 Ken  staff   0 Oct  9 22:44 extra question.txt
+drwxr-xr-x  2 Ken  staff  68 Oct  9 22:45 test this
+-rw-r--r--  1 Ken  staff   0 Oct  9 22:44 testing_documentation.html
+DONGYINSHENGdeMacBook-Pro:a1 Ken$ ls
+LatePenalty.html		external_documentation.txt
+assignment_1			extra question.txt
+assignment_2			test this
+assignment_3			testing_documentation.html
+assignment_4
+DONGYINSHENGdeMacBook-Pro:a1 Ken$ ls -d */ 2>/dev/null | cut -f1 -d '/' |tee |rs -t -c
+assignment_1  assignment_2  assignment_3  assignment_4  test this
+DONGYINSHENGdeMacBook-Pro:a1 Ken$ 
+// ls -d */ is for listing the ‘/‘ in the directory, ‘/‘ is just for directories.
+// 2>/dev/ null is for output nothing if no subdirectories
+// cut -f1 -d ‘/‘ is for cuting the delimter characters ’/‘ of the list 1 field
+// tee is for pipe fitting the directories list
+// rs -t -c is for output the result
+
+assignment_1  assignment_2  assignment_3  assignment_4  test this
+DONGYINSHENGdeMacBook-Pro:a1 Ken$ 
+
+
+2.
+// This is for situation 2
+DONGYINSHENGdeMacBook-Pro:/ Ken$ ls -l
+total 45
+drwxrwxr-x+ 56 root  admin  1904 Oct  5 14:45 Applications
+drwxr-xr-x+ 59 root  wheel  2006 Sep 20 15:15 Library
+drwxr-xr-x@  2 root  wheel    68 Sep 20 15:13 Network
+drwxr-xr-x@  4 root  wheel   136 Sep 20 15:08 System
+drwxr-xr-x   5 root  admin   170 Sep 20 15:13 Users
+drwxr-xr-x@  3 root  wheel   102 Oct  4 11:27 Volumes
+drwxr-xr-x@ 38 root  wheel  1292 Sep 13 18:57 bin
+drwxrwxr-t@  2 root  admin    68 Sep 20 15:13 cores
+dr-xr-xr-x   3 root  wheel  4203 Oct  4 11:27 dev
+lrwxr-xr-x@  1 root  wheel    11 Sep 20 15:12 etc -> private/etc
+dr-xr-xr-x   2 root  wheel     1 Oct  8 22:21 home
+-rw-r--r--@  1 root  wheel   313 Jul 30 20:00 installer.failurerequests
+dr-xr-xr-x   2 root  wheel     1 Oct  8 22:21 net
+drwxr-xr-x@  3 root  wheel   102 May  5 01:36 opt
+drwxr-xr-x@  6 root  wheel   204 Sep 20 15:13 private
+drwxr-xr-x@ 63 root  wheel  2142 Sep 20 15:12 sbin
+lrwxr-xr-x@  1 root  wheel    11 Sep 20 15:12 tmp -> private/tmp
+drwxr-xr-x@ 11 root  wheel   374 Sep 20 15:15 usr
+lrwxr-xr-x@  1 root  wheel    11 Sep 20 15:12 var -> private/var
+DONGYINSHENGdeMacBook-Pro:/ Ken$ ls -d */ 2>/dev/null | cut -f1 -d '/' |tee |rs -t -c
+Applications  Users         dev           opt           usr
+Library       Volumes       etc           private       var
+Network       bin           home          sbin          
+System        cores         net           tmp           
+// ls -d */ is for listing the ‘/‘ in the directory, ‘/‘ is just for directories.
+// 2>/dev/ null is for output nothing if no subdirectories
+// cut -f1 -d ‘/‘ is for cuting the delimter characters ’/‘ of the list 1 field
+// tee is for pipe fitting the directories list
+// rs -t is fill in the rows of the output array using the columns of the input array.
+
+
+3.
+DONGYINSHENGdeMacBook-Pro:~ Ken$ cd ~
+DONGYINSHENGdeMacBook-Pro:~ Ken$ ls
+Applications	Documents	Library		Music		Public
+Desktop		Downloads	Movies		Pictures	a1
+DONGYINSHENGdeMacBook-Pro:~ Ken$ mkdir a01 // make a new directory
+DONGYINSHENGdeMacBook-Pro:~ Ken$ cd a01    // working in the new directory
+DONGYINSHENGdeMacBook-Pro:a01 Ken$ ls      // showing nothing here
+DONGYINSHENGdeMacBook-Pro:a01 Ken$ ls -d */ 2>/dev/null | cut -f1 -d '/' |tee |rs -t -c
+DONGYINSHENGdeMacBook-Pro:a01 Ken$     

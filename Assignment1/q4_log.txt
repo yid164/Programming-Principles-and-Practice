@@ -1,0 +1,12 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+//using the echo to put the number (199 and 0) into egrep
+
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ echo 199 | egrep -v '\<[0-9]{1,2}\>'
+199
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ echo 0 | egrep '\<[0-9]{1,2}\>'
+0
