@@ -1,0 +1,6 @@
+int add1(int x) {	return x + 1;}
+int subtract1(int x) {	return x - 1;}
+int double_it(int x) {	return x * 2;}
+int halve_it(int x) {return x / 2;}
+int main() {	int myint;	int result;	scanf("%d", &myint);	if (myint >= 0) {		if (myint <= 10) {			result = halve_it(myint);		} else {			result = double_it(myint);		}	} else {		if (myint > -10) {			result = subtract1(myint);		} else if (myint > -20) {			result = add1(myint);		} else {			result = 3;		}
+	return result;}

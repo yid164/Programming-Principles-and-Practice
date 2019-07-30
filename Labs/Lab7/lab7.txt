@@ -1,0 +1,110 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214 T01
+
+1.
+(a)
+smac22:Lab7 yid164$ tar -xf L6Q4.with_cr.txt.tar 
+smac22:Lab7 yid164$ ls
+L6Q4.with_cr.txt	L6Q4.with_cr.txt.tar	lab7.pdf		lab7.txt
+
+(b)
+smac22:Lab7 yid164$ pr -n -t L6Q4.with_cr.txt
+}   1	return x + 1;x) {
+}nt subtreturn x - 1;{
+}nt doubreturn x * 2;{
+}eturn x / 2;int x) {
+int main} else {} else {result = 3;d1(myint);int);
+}   6	return result;
+
+(c)
+smac22:Lab7 yid164$ grep '\r' '\n' L6Q4.with_cr.txt | hexdump -c
+grep: \n: No such file or directory
+0000000   L   6   Q   4   .   w   i   t   h   _   c   r   .   t   x   t
+0000010   :   i   n   t       a   d   d   1   (   i   n   t       x   )
+0000020       {  \r  \t   r   e   t   u   r   n       x       +       1
+0000030   ;  \r   }  \n   L   6   Q   4   .   w   i   t   h   _   c   r
+0000040   .   t   x   t   :  \r   i   n   t       s   u   b   t   r   a
+0000050   c   t   1   (   i   n   t       x   )       {  \r  \t   r   e
+0000060   t   u   r   n       x       -       1   ;  \r   }  \n   L   6
+0000070   Q   4   .   w   i   t   h   _   c   r   .   t   x   t   :  \r
+0000080   i   n   t       d   o   u   b   l   e   _   i   t   (   i   n
+0000090   t       x   )       {  \r  \t   r   e   t   u   r   n       x
+00000a0       *       2   ;  \r   }  \n   L   6   Q   4   .   w   i   t
+00000b0   h   _   c   r   .   t   x   t   :  \r   i   n   t       h   a
+00000c0   l   v   e   _   i   t   (   i   n   t       x   )       {  \r
+00000d0   r   e   t   u   r   n       x       /       2   ;  \r   }  \n
+00000e0   L   6   Q   4   .   w   i   t   h   _   c   r   .   t   x   t
+00000f0   :  \r   i   n   t       m   a   i   n   (   )       {  \r  \t
+0000100   i   n   t       m   y   i   n   t   ;  \r  \t   i   n   t    
+0000110   r   e   s   u   l   t   ;  \r  \t   s   c   a   n   f   (   "
+0000120   %   d   "   ,       &   m   y   i   n   t   )   ;  \r  \t   i
+0000130   f       (   m   y   i   n   t       >   =       0   )       {
+0000140  \r  \t  \t   i   f       (   m   y   i   n   t       <   =    
+0000150   1   0   )       {  \r  \t  \t  \t   r   e   s   u   l   t    
+0000160   =       h   a   l   v   e   _   i   t   (   m   y   i   n   t
+0000170   )   ;  \r  \t  \t   }       e   l   s   e       {  \r  \t  \t
+0000180  \t   r   e   s   u   l   t       =       d   o   u   b   l   e
+0000190   _   i   t   (   m   y   i   n   t   )   ;  \r  \t  \t   }  \r
+00001a0  \t   }       e   l   s   e       {  \r  \t  \t   i   f       (
+00001b0   m   y   i   n   t       >       -   1   0   )       {  \r  \t
+00001c0  \t  \t   r   e   s   u   l   t       =       s   u   b   t   r
+00001d0   a   c   t   1   (   m   y   i   n   t   )   ;  \r  \t  \t   }
+00001e0       e   l   s   e       i   f       (   m   y   i   n   t    
+00001f0   >       -   2   0   )       {  \r  \t  \t  \t   r   e   s   u
+0000200   l   t       =       a   d   d   1   (   m   y   i   n   t   )
+0000210   ;  \r  \t  \t   }       e   l   s   e       {  \r  \t  \t  \t
+0000220   r   e   s   u   l   t       =       3   ;  \r  \t  \t   }  \n
+0000230   L   6   Q   4   .   w   i   t   h   _   c   r   .   t   x   t
+0000240   :  \r  \t   r   e   t   u   r   n       r   e   s   u   l   t
+0000250   ;  \r   }  \n                                                
+0000254
+
+2.
+(b)
+smac22:Lab7 yid164$ gcc -Wall -Wextra -lm test_math.c 
+test_math.c:10:15: warning: unused parameter 'argc' [-Wunused-parameter]
+int main (int argc, char *argv[])
+              ^
+test_math.c:10:27: warning: unused parameter 'argv' [-Wunused-parameter]
+int main (int argc, char *argv[])
+                          ^
+2 warnings generated.
+smac22:Lab7 yid164$ ./a.out
+input number: 
+20
+The result = 0.912945 
+smac22:Lab7 yid164$ ./a.out
+input number: 
+10
+The result = -0.544021 
+smac22:Lab7 yid164$ ./a.out
+input number: 
+2.5
+The result = 0.598472 
+smac22:Lab7 yid164$ ./a.out
+input number: 
+10
+The result = -0.544021 
+
+(c)
+smac22:Lab7 yid164$ gcc -Wall -Wextra -c test_math.c
+test_math.c:10:15: warning: unused parameter 'argc' [-Wunused-parameter]
+int main (int argc, char *argv[])
+              ^
+test_math.c:10:27: warning: unused parameter 'argv' [-Wunused-parameter]
+int main (int argc, char *argv[])
+                          ^
+2 warnings generated.
+smac22:Lab7 yid164$ file test_math.o
+test_math.o: Mach-O 64-bit object x86_64
+
+3.
+smac22:Lab7 yid164$ export GREP_OPTIONS="--ignore-case"
+smac22:Lab7 yid164$ grep "a" <<< A
+A
+
+4.
+smac22:Lab7 yid164$ ls -ld ~
+drwx------  19 yid164  student  4096 21 Oct 09:04 /student/machome/yid164
