@@ -1,0 +1,285 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214 
+
+1. 
+uofs-10-227-158-241:factor Ken$ value=30000000-31000000
+uofs-10-227-158-241:factor Ken$ ./factor $value | grep '^\([0-9]\+\)[^0-9]\+\1$'|head -20
+30000001 = 30000001
+30000023 = 30000023
+30000037 = 30000037
+30000041 = 30000041
+30000049 = 30000049
+30000059 = 30000059
+30000071 = 30000071
+30000079 = 30000079
+30000083 = 30000083
+30000109 = 30000109
+30000133 = 30000133
+30000137 = 30000137
+30000149 = 30000149
+30000163 = 30000163
+30000167 = 30000167
+30000169 = 30000169
+30000193 = 30000193
+30000199 = 30000199
+30000247 = 30000247
+30000251 = 30000251
+
+2.
+(a)
+yid164@tux5:~> svn info https://svn.cs.usask.ca/svn/student/214/yid164
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Path: yid164
+URL: https://svn.cs.usask.ca/svn/student/214/yid164
+Relative URL: ^/
+Repository Root: https://svn.cs.usask.ca/svn/student/214/yid164
+Repository UUID: b8fe537c-abce-40fb-99c6-7131de5faa99
+Revision: 0
+Node Kind: directory
+Last Changed Rev: 0
+Last Changed Date: 2016-09-06 16:49:05 -0600 (Tue, 06 Sep 2016)
+
+(b)
+yid164@tux5:~> SvnURL=https://svn.cs.usask.ca/svn/student/214/yid164
+yid164@tux5:~> SvnPrj=$SvnURL/Lab09
+yid164@tux5:~> svn mkdir $SvnPrj -m "project root for Lab09"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+yid164@tux5:~> svn list $SvnURL
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Lab09/
+
+yid164@tux5:~> SvnTags=$SvnPrj/tags
+yid164@tux5:~> SvnTrunk=$SvnPrj/trunk
+yid164@tux5:~> SvnBranches=$SvnPrj/branches
+yid164@tux5:~> svn mkdir $SvnTags -m "subdirectory for Lab09 program tags"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+
+Committed revision 2.
+yid164@tux5:~> svn mkdir $SvnTrunk -m "subdirectory for Lab09 program trunk"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+
+Committed revision 3.
+yid164@tux5:~> svn mkdir $SvnBranches -m "subdirectory for Lab09  program branches"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+
+Committed revision 4.
+
+(c)
+yid164@tux5:~> svn list -R $SvnPrj
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+branches/
+tags/
+trunk/
+
+(d)
+yid164@tux5:~> Wrk=`pwd`/Lab09Wrk
+yid164@tux5:~> if [ ! -d $Wrk ]; then mkdir $Wrk; fi
+yid164@tux5:~> pushd $Wrk
+~/Lab09Wrk ~
+yid164@tux5:~/Lab09Wrk> ls -a
+./  ../
+yid164@tux5:~/Lab09Wrk> ls
+yid164@tux5:~/Lab09Wrk> svn checkout $SvnTrunk
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Checked out revision 4.
+yid164@tux5:~/Lab09Wrk> ls -a
+./  ../  trunk/
+
+
+(e)
+yid164@tux5:~/Lab09Wrk> pushd trunk
+~/Lab09Wrk/trunk ~/Lab09Wrk ~
+yid164@tux5:~/Lab09Wrk/trunk> ls
+yid164@tux5:~/Lab09Wrk/trunk> ls -a
+./  ../  .svn/
+yid164@tux5:~/Lab09Wrk/trunk> 
+yid164@tux5:~/Lab09Wrk/trunk> echo 'This is file 1' >file1.txt
+yid164@tux5:~/Lab09Wrk/trunk> ls
+file1.txt
+yid164@tux5:~/Lab09Wrk/trunk> cat file1.txt
+This is file 1
+yid164@tux5:~/La
+
+(f)
+yid164@tux5:~/Lab09Wrk/trunk> svn add file1.txt
+A         file1.txt
+
+yid164@tux5:~/Lab09Wrk/trunk> ls
+file1.txt
+yid164@tux5:~/Lab09Wrk/trunk> svn list $SvnTrunk
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+(g)
+yid164@tux5:~/Lab09Wrk/trunk> svn commit -m "This is the 1st file"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Adding         file1.txt
+Transmitting file data .
+Committed revision 5.
+yid164@tux5:~/Lab09Wrk/trunk> svn list $SvnTrunk
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+file1.txt
+
+(h)
+yid164@tux5:~/Lab09Wrk/trunk> svn status -v
+                 4        3 yid164@USASK.CA .
+?                                        .svn-commit.2.tmp.swp
+?                                        .svn-commit.3.tmp.swp
+?                                        .svn-commit.tmp.swo
+?                                        .svn-commit.tmp.swp
+                 5        5 yid164@USASK.CA file1.txt
+?                                        svn-commit.2.tmp
+?                                        svn-commit.3.tmp
+?                                        svn-commit.tmp
+yid164@tux5:~/Lab09Wrk/trunk> echo 'This is file 2' >file2.txt
+yid164@tux5:~/Lab09Wrk/trunk> ls
+file1.txt  file2.txt  svn-commit.2.tmp	svn-commit.3.tmp  svn-commit.tmp
+yid164@tux5:~/Lab09Wrk/trunk> cat file2.txt
+This is file 2
+
+(i)
+yid164@tux5:~/Lab09Wrk/trunk> svn status -v
+                 4        3 yid164@USASK.CA .
+?                                        .svn-commit.2.tmp.swp
+?                                        .svn-commit.3.tmp.swp
+?                                        .svn-commit.tmp.swo
+?                                        .svn-commit.tmp.swp
+                 5        5 yid164@USASK.CA file1.txt
+?                                        file2.txt
+?                                        svn-commit.2.tmp
+?                                        svn-commit.3.tmp
+?                                        svn-commit.tmp
+// ? item is not under the version control.
+
+(j)
+yid164@tux5:~/Lab09Wrk/trunk> svn add file2.txt
+A         file2.txt
+yid164@tux5:~/Lab09Wrk/trunk> svn status -v
+                 4        3 yid164@USASK.CA .
+?                                        .svn-commit.2.tmp.swp
+?                                        .svn-commit.3.tmp.swp
+?                                        .svn-commit.tmp.swo
+?                                        .svn-commit.tmp.swp
+                 5        5 yid164@USASK.CA file1.txt
+A                -       ?   ?           file2.txt
+?                                        svn-commit.2.tmp
+?                                        svn-commit.3.tmp
+?                                        svn-commit.tmp
+// it shows A to instead the ?, item is scheduled for addition
+
+(k)
+yid164@tux5:~/Lab09Wrk/trunk> svn commit -m "this is the 2nd file"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Adding         file2.txt
+Transmitting file data .
+Committed revision 6.
+yid164@tux5:~/Lab09Wrk/trunk> svn status -v
+                 4        3 yid164@USASK.CA .
+?                                        .svn-commit.2.tmp.swp
+?                                        .svn-commit.3.tmp.swp
+?                                        .svn-commit.tmp.swo
+?                                        .svn-commit.tmp.swp
+                 5        5 yid164@USASK.CA file1.txt
+                 6        6 yid164@USASK.CA file2.txt
+?                                        svn-commit.2.tmp
+?                                        svn-commit.3.tmp
+?                                        svn-commit.tmp
+// it becomes 6, item is the sixth file in the version control
+
+(l)
+yid164@tux5:~/Lab09Wrk/trunk> echo 'This is the second line of file 1' >> file1.txt
+yid164@tux5:~/Lab09Wrk/trunk> cat file1.txt
+This is file 1
+This is the second line of file 1
+yid164@tux5:~/Lab09Wrk/trunk> svn status -v
+                 4        3 yid164@USASK.CA .
+?                                        .svn-commit.2.tmp.swp
+?                                        .svn-commit.3.tmp.swp
+?                                        .svn-commit.tmp.swo
+?                                        .svn-commit.tmp.swp
+M                5        5 yid164@USASK.CA file1.txt
+                 6        6 yid164@USASK.CA file2.txt
+// The first file before the tile has a ‘M’; means item has been modified.
+
+(m)
+yid164@tux5:~/Lab09Wrk/trunk> svn update
+Updating '.':
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Username: yid164
+Password for 'yid164': ************
+
+At revision 6.
+yid164@tux5:~/Lab09Wrk/trunk> svn commit -m "the modified file1"
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+Sending        file1.txt
+Transmitting file data .
+Committed revision 7.
+
+(n)
+yid164@tux5:~/Lab09Wrk/trunk> svn log $SvnTrunk/file1.txt
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+------------------------------------------------------------------------
+r7 | yid164@USASK.CA | 2016-11-14 22:14:29 -0600 (Mon, 14 Nov 2016) | 1 line
+
+the modified file1
+------------------------------------------------------------------------
+r5 | yid164@USASK.CA | 2016-11-14 21:36:35 -0600 (Mon, 14 Nov 2016) | 1 line
+
+This is the 1st file
+------------------------------------------------------------------------
+
+(o)
+yid164@tux5:~/Lab09Wrk/trunk> svn log $SvnTrunk          
+Authentication realm: <https://svn.cs.usask.ca:443> CMPT Subversion Repository (yid164)
+Password for 'yid164': ************
+
+------------------------------------------------------------------------
+r7 | yid164@USASK.CA | 2016-11-14 22:14:29 -0600 (Mon, 14 Nov 2016) | 1 line
+
+the modified file1
+------------------------------------------------------------------------
+r6 | yid164@USASK.CA | 2016-11-14 21:52:25 -0600 (Mon, 14 Nov 2016) | 1 line
+
+this is the 2nd file
+------------------------------------------------------------------------
+r5 | yid164@USASK.CA | 2016-11-14 21:36:35 -0600 (Mon, 14 Nov 2016) | 1 line
+
+This is the 1st file
+------------------------------------------------------------------------
+r3 | yid164@USASK.CA | 2016-11-14 20:54:44 -0600 (Mon, 14 Nov 2016) | 1 line
+
+subdirectory for Lab09 program trunk
+------------------------------------------------------------------------
+
+
+
