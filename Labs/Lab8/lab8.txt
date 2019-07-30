@@ -1,0 +1,291 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+1. 
+'.FEATURES'
+     Expands to a list of special features supported by this version of
+     'make'.  Possible values include, but are not limited to:
+
+     'archives'
+          Supports 'ar' (archive) files using special file name syntax.
+          *Note Using 'make' to Update Archive Files: Archives.
+
+     'check-symlink'
+          Supports the '-L' ('--check-symlink-times') flag.  *Note
+          Summary of Options: Options Summary.
+
+     'else-if'
+          Supports "else if" non-nested conditionals.  *Note Syntax of
+          Conditionals: Conditional Syntax.
+
+     'jobserver'
+          Supports "job server" enhanced parallel builds.  *Note
+          Parallel Execution: Parallel.
+
+     'oneshell'
+          Supports the '.ONESHELL' special target.  *Note Using One
+          Shell: One Shell.
+
+     'order-only'
+          Supports order-only prerequisites.  *Note Types of
+          Prerequisites: Prerequisite Types.
+
+     'second-expansion'
+          Supports secondary expansion of prerequisite lists.
+
+     'shortest-stem'
+          Uses the "shortest stem" method of choosing which pattern, of
+          multiple applicable options, will be used.  *Note How Patterns
+          Match: Pattern Match.
+
+     'target-specific'
+          Supports target-specific and pattern-specific variable
+          assignments.  *Note Target-specific Variable Values:
+          Target-specific.
+
+     'undefine'
+          Supports the 'undefine' directive.  *Note Undefine
+          Directive::.
+
+     'guile'
+          Has GNU Guile available as an embedded extension language.
+          *Note GNU Guile Integration: Guile Integration.
+
+     'load'
+          Supports dynamically loadable objects for creating custom
+          extensions.  *Note Loading Dynamic Objects: Loading Objects.
+
+2.
+(a)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ g++ -Wall -o nqueens queens14.cc
+
+(b)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ curl -O http://www.acme.com/software/factor/factor_02Jun2016.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 28040  100 28040    0     0  46923      0 --:--:-- --:--:-- --:--:-- 46889
+
+(c)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ tar -xvf factor_02Jun2016.tar.gz 
+x factor/
+x factor/Makefile
+x factor/factor.1
+x factor/factor.c
+x factor/low_primes.h
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ cd factor
+
+(d)
+DONGYINSHENGdeMacBook-Pro:factor Ken$ make --h
+Usage: make [options] [target] ...
+Options:
+  -b, -m                      Ignored for compatibility.
+  -B, --always-make           Unconditionally make all targets.
+  -C DIRECTORY, --directory=DIRECTORY
+                              Change to DIRECTORY before doing anything.
+  -d                          Print lots of debugging information.
+  --debug[=FLAGS]             Print various types of debugging information.
+  -e, --environment-overrides
+                              Environment variables override makefiles.
+  -f FILE, --file=FILE, --makefile=FILE
+                              Read FILE as a makefile.
+  -h, --help                  Print this message and exit.
+  -i, --ignore-errors         Ignore errors from commands.
+  -I DIRECTORY, --include-dir=DIRECTORY
+                              Search DIRECTORY for included makefiles.
+  -j [N], --jobs[=N]          Allow N jobs at once; infinite jobs with no arg.
+  -k, --keep-going            Keep going when some targets can't be made.
+  -l [N], --load-average[=N], --max-load[=N]
+                              Don't start multiple jobs unless load is below N.
+  -L, --check-symlink-times   Use the latest mtime between symlinks and target.
+  -n, --just-print, --dry-run, --recon
+                              Don't actually run any commands; just print them.
+  -o FILE, --old-file=FILE, --assume-old=FILE
+                              Consider FILE to be very old and don't remake it.
+  -p, --print-data-base       Print make's internal database.
+  -q, --question              Run no commands; exit status says if up to date.
+  -r, --no-builtin-rules      Disable the built-in implicit rules.
+  -R, --no-builtin-variables  Disable the built-in variable settings.
+  -s, --silent, --quiet       Don't echo commands.
+  -S, --no-keep-going, --stop
+                              Turns off -k.
+  -t, --touch                 Touch targets instead of remaking them.
+  -v, --version               Print the version number of make and exit.
+  -w, --print-directory       Print the current directory.
+  --no-print-directory        Turn off -w, even if it was turned on implicitly.
+  -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE
+                              Consider FILE to be infinitely new.
+  --warn-undefined-variables  Warn when an undefined variable is referenced.
+  -N OPTION, --NeXT-option=OPTION
+                              Turn on value of NeXT OPTION.
+
+This program built for i386-apple-darwin11.3.0
+Report bugs to <bug-make@gnu.org>
+
+(e)
+DONGYINSHENGdeMacBook-Pro:factor Ken$ diff Makefile Makefile.org
+3c3
+< LDFLAGS =	
+---
+> LDFLAGS =	-s
+
+(f)
+DONGYINSHENGdeMacBook-Pro:factor Ken$ ./factor 223092871 2147483647
+223092871 = 317 703763
+2147483647 = 2147483647
+DONGYINSHENGdeMacBook-Pro:factor Ken$ ./factor 65534-65538
+65534 = 2 7 31 151
+65535 = 3 5 17 257
+65536 = 2^16
+65537 = 65537
+65538 = 2 3^2 11 331
+DONGYINSHENGdeMacBook-Pro:factor Ken$ ./factor 123456789.
+1234567890 = 2 3^2 5 3607 3803
+1234567891 = 1234567891
+1234567892 = 2^2 41 7527853
+1234567893 = 3 13 31655587
+1234567894 = 2 7 47 479 3917
+1234567895 = 5 11 23 975943
+1234567896 = 2^3 3 83 619763
+1234567897 = 17 73 994817
+1234567898 = 2 61 10119409
+1234567899 = 3^4 109 139831
+
+(g)
+(i)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ ./nqueens
+Usage: ./nqueens <N>
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ time ./nqueens 6
+A solution exists for N = 6
+.Q....
+...Q..
+.....Q
+Q.....
+..Q...
+....Q.
+
+real	1m34.498s
+user	0m33.477s
+sys	0m0.028s
+
+(ii)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[1] 19806
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[2] 19807
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[3] 19808
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[4] 19809
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[5] 19810
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[6] 19811
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[7] 19812
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[8] 19813
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[9] 19814
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ factor/factor 30000000-90000000 > /dev/null &
+[10] 19815
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ ps -O nice
+  PID NI   TT  STAT      TIME COMMAND
+19690  0 s000  S      0:00.07 -bash
+19806  0 s000  R      0:03.88 factor/factor 30000000-90000000
+19807  0 s000  R      0:03.57 factor/factor 30000000-90000000
+19808  0 s000  R      0:03.21 factor/factor 30000000-90000000
+19809  0 s000  R      0:02.89 factor/factor 30000000-90000000
+19810  0 s000  R      0:02.68 factor/factor 30000000-90000000
+19811  0 s000  R      0:02.51 factor/factor 30000000-90000000
+19812  0 s000  R      0:02.33 factor/factor 30000000-90000000
+19813  0 s000  R      0:02.18 factor/factor 30000000-90000000
+19814  0 s000  R      0:02.02 factor/factor 30000000-90000000
+19815  0 s000  R      0:01.88 factor/factor 30000000-90000000
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ time ./nqueens 6
+A solution exists for N = 6
+.Q....
+...Q..
+.....Q
+Q.....
+..Q...
+....Q.
+
+real	2m38.431s
+user	0m31.169s
+sys	0m0.032s
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ killall factor
+[1]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[2]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[3]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[4]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[5]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[6]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[7]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[8]   Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[9]-  Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+[10]+  Terminated: 15          factor/factor 30000000-90000000 > /dev/null
+
+(iii)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ 
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[1] 19870
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[2] 19871
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[3] 19872
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[4] 19873
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[5] 19874
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[6] 19875
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[7] 19876
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[8] 19877
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[9] 19878
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ nice -n 10 factor/factor 30000000-90000000 > /dev/null & 
+[10] 19879
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ ps -O nice
+  PID NI   TT  STAT      TIME COMMAND
+19690  0 s000  S      0:00.11 -bash
+19870 10 s000  RN     0:06.86 factor/factor 30000000-90000000
+19871 10 s000  RN     0:05.88 factor/factor 30000000-90000000
+19872 10 s000  RN     0:05.22 factor/factor 30000000-90000000
+19873 10 s000  RN     0:04.56 factor/factor 30000000-90000000
+19874 10 s000  RN     0:04.00 factor/factor 30000000-90000000
+19875 10 s000  RN     0:03.54 factor/factor 30000000-90000000
+19876 10 s000  RN     0:03.15 factor/factor 30000000-90000000
+19877 10 s000  RN     0:02.80 factor/factor 30000000-90000000
+19878 10 s000  RN     0:02.46 factor/factor 30000000-90000000
+19879 10 s000  RN     0:02.14 factor/factor 30000000-90000000
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ time ./nqueens 6
+A solution exists for N = 6
+.Q....
+...Q..
+.....Q
+Q.....
+..Q...
+....Q.
+
+real	1m29.075s
+user	0m31.664s
+sys	0m0.035s
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ killall factor
+[1]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[2]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[3]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[4]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[5]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[6]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[7]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[8]   Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[9]-  Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+[10]+  Terminated: 15          nice -n 10 factor/factor 30000000-90000000 > /dev/null
+
+(h)
+The elapsed time in (i, ii, iii) different, in the i and iii are pretty similar time token, but in ii, it toke much longer. the CPU time is basically same. I think the reason is CPU handle the process from the code within the kernel is same in those 3 situation, but the elapsed times are different because of it was waiting for I/O to complete the 3 processes are different.
