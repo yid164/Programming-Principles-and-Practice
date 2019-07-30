@@ -1,0 +1,20 @@
+Student Name: Yinsheng Dong
+Student Number:11148648
+NSID: yid164
+Lecture Section: CMPT214
+
+1. Used a typedef to define a float Element(Elem) that defines a array (vector)
+
+2. Created a structure Vector that include the Element array, an integer size and and integer count number, the Element array used to store the float number, the integer size is used to provide the max size of the array, and integer count is used to provide user’s array size.
+
+3. Created a boolean function named print_vec(),use it to judge whether the user wants to print out theirs vector or not, and print them out.
+
+4. Created a Vector function named *alloc_vec(), use it to create a new vector, and every element in the struct is ruled. It is a pointer function. Vector *vec is a new Vector, the size is ruled to 65535, the user count is ruled to 0, and it also make a empty vector vec->el. The return in this function is the new vector.
+
+5. Created a void function named delalloc_vac(), use it to delete everything in the array and free up the memory. It provide a possible that delete the old array to create a new array. It need a Vector variable to free up.
+
+6. Created a Vector function named *extend_vec(), every time call it, it will extend a new  element to the array. Firstly need to store the element’s location vec->el[vec->cout]==el, and every time call it the user’s vector size will get 1 more, and the max vector size will get 1 less, and it finally return the vector that has already been extended.
+
+7. Created a Vector function named *scalar_plus(), every time call it, it will add the specified floating point value to each element in the vector, it needs a for-loops that it can read every element, and create a new Elem variable that store the value, and put the value to the array. It needs the vector that user wants to add value, and need the float-point variable that user wants to plus, and finally return the vector that every element inside are added
+
+8. Crated a Vector function named *scalar_minus(), from the Assignment required, it has to terminate the test, so I put return NULL in the bottom, and assert(!NULL), so it terminated the test.
