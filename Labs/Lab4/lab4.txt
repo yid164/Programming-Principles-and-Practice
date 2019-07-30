@@ -1,0 +1,184 @@
+Student Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214 T01
+
+1. 
+(a)
+yid164@tux7:~> POSTAL_CODE="S7N 5C9"
+yid164@tux7:~> grep "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" <<<"$POSTAL_CODE"
+S7N 5C9
+yid164@tux7:~> POSTAL_CODE="juckS7N 5C9garbage"
+yid164@tux7:~> grep "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" <<<"$POSTAL_CODE"
+yid164@tux7:~> 
+yid164@tux7:~> POSTAL_CODE="S7N 5E8"
+yid164@tux7:~> grep "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" <<<"$POSTAL_CODE"
+S7N 5E8
+yid164@tux7:~> POSTAL_CODE="111 222"
+yid164@tux7:~> grep "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" <<<"$POSTAL_CODE"
+yid164@tux7:~> POSTAL_CODE="s7n 5c9"
+yid164@tux7:~> grep "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" <<<"$POSTAL_CODE"
+yid164@tux7:~> 
+
+(b)
+yid164@tux6:~/214lab4> grep '^[I O][a-z].*box$' mailinfo.txt
+Inbox
+Is a match box
+Outbox
+yid164@tux6:~/214lab4> grep -v '^[I O][a-z].*box$' mailinfo.txt
+the Inbox
+Doesn't match
+INBOX
+Outbox1
+InbOX
+Ibox
+I box
+
+(c)
+yid164@tux6:~/214lab4> grep -v '^[I O][a-z].*box$' mailinfo.txt | wc -l
+7
+yid164@tux6:~/214lab4> grep '^[I O][a-z].*box$' mailinfo.txt | wc -l
+3
+
+2.
+(a)
+yid164@tux6:~/214lab4> cut -f 1 -d: passwd
+root
+bin
+daemon
+adm
+lp
+sync
+mail
+news
+uucp
+operator
+games
+nobody
+messagebus
+systemd-journal-gateway
+systemd-journal-remote
+systemd-journal-upload
+systemd-network
+systemd-resolve
+systemd-timesync
+vcsa
+rpm
+polkitd
+colord
+rtkit
+gdm
+mysql
+openvpn
+lightdm
+rpc
+davfs2
+apache
+sshd
+sddm
+rpcuser
+ntp
+postfix
+nscd
+nm-openconnect
+local
+ntop
+svn
+avahi
+avahi-autoipd
+nagios
+nslcd
+math
+nx
+boinc
+
+(b).
+yid164@tux6:~/214lab4> cut -f 1 -d: passwd |sort -r
+vcsa
+uucp
+systemd-timesync
+systemd-resolve
+systemd-network
+systemd-journal-upload
+systemd-journal-remote
+systemd-journal-gateway
+sync
+svn
+sshd
+sddm
+rtkit
+rpm
+rpcuser
+rpc
+root
+postfix
+polkitd
+operator
+openvpn
+nx
+ntp
+ntop
+nslcd
+nscd
+nobody
+nm-openconnect
+news
+nagios
+mysql
+messagebus
+math
+mail
+lp
+local
+lightdm
+gdm
+games
+davfs2
+daemon
+colord
+boinc
+bin
+avahi-autoipd
+avahi
+apache
+adm
+
+(c)
+yid164@tux6:~/214lab4> cut -f 1 -d: passwd |sort | tail -1   
+vcsa
+
+(d)
+yid164@tux6:~/214lab4> cut -f 1 -d: passwd |sort | tail -1| cut -c 1
+v t
+
+(e)
+yid164@tux6:~/214lab4> cut -f 1 -d: passwd |sort | tail -1| cut -c 1|tr "a-z" "A-Z"
+V
+
+(f)
+yid164@tux6:~/214lab4> cut -f 1 -d: passwd |sort | tail -1|cat >max_username.txt 
+yid164@tux6:~/214lab4> more max_username.txt
+vcsa
+
+3.
+(a)
+yid164@tux8:~/214lab4> COLUMN1_HEADING="Name"
+yid164@tux8:~/214lab4> COLUMN2_HEADING="Student Number"
+yid164@tux8:~/214lab4> printf "%s    %s %s \nJohn    123456789\n" $COLUMN1_HEADING $COLUMN2_HEADING
+Name    Student number 
+John    123456789
+
+(b)
+yid164@tux8:~/214lab4> printf "\$COLUMN1_HEADING%s\$COLUNM2_HEADING%sJohn%s123456789%s%s \n" "\t" "\n" "\t" "\n"
+$COLUMN1_HEADING\t$COLUNM2_HEADING\nJohn\t123456789\n 
+
+4. 
+It should be a good idea to always put braces around the body of an if statement in C/C++
+because when we set up the if statement as our condition, a brace include every implementation if the “if” statement is working, and a brace can avoid computer confuse our code. A good example is that the question’s code fragement. Because the code doesn’t have any braces, so we couldn’t know whether the “flag=false” and “pitchar( c )” is from the “if(i==3)” condition or not.
+
+5. 
+(a)
+ii demonstrates better programming style because the common is enough good for the code, but i shows some unnecessary info like “clear screen”.
+
+(b)
+i demonstrates better programming style because ii ’s first common is that “Copy up to n” but we really do not know what n is, but i shows that “cope n chars” that’s enough good.
