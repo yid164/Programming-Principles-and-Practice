@@ -1,0 +1,70 @@
+
+-
+2
+-
+
+% egrep '\<(\w+)\>\W+\1' sentences.txt 
+This is a sentence sentence.
+This is a a another sentence.
+this this is a sentence.
+Another matching matching example.
+How many   many examples do we need?
+% egrep -v '\<(\w+)\>\W+\1' sentences.txt
+This is a good sentence.
+This is a really good sentence.
+This this is a sentence.
+This example does not match.
+
+-----
+4 (a)
+-----
+
+function main() from modified leap_year.cc:
+
+int main(int argc, char *argv[]) {
+	int year;
+	char *result;
+
+	while ( cin >> year ) {
+		result = isLeap( year );
+		cout << result;
+		delete result;
+	}
+	return 0;
+}
+
+alternatively
+
+int main() {
+	int year;
+	char *result;
+
+	while ( cin >> year ) {
+		result = isLeap( year );
+		cout << result;
+		delete result;
+	}
+	return 0;
+}
+
+-----
+4 (b)
+-----
+
+content of leapin.txt:
+
+0
+-1
+1
+4
+100
+400
+1968
+2000
+1234567890
+12345678901234
+
+-----
+4 (f)
+-----
+

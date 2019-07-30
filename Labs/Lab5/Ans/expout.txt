@@ -1,0 +1,11 @@
+0 error
+1 error
+4 yes
+100 no
+200 yes
+800 yes
+1999 no
+2000 yes
+2004 yes
+2005 no
+2008 yes

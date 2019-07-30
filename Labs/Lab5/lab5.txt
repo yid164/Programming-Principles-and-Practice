@@ -1,0 +1,86 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214 T01
+
+1.
+yid164@tux8:~> grep "system" /etc/passwd | grep -v "false"
+messagebus:x:999:999:system user for dbus:/:/sbin/nologin
+systemd-journal-gateway:x:994:994:systemd Journal Gateway:/:/sbin/nologin
+systemd-journal-remote:x:993:993:systemd Journal Remote:/:/sbin/nologin
+systemd-journal-upload:x:992:992:systemd Journal Upload:/:/sbin/nologin
+systemd-network:x:991:991:systemd Network Management:/:/sbin/nologin
+systemd-resolve:x:990:990:systemd Resolver:/:/sbin/nologin
+systemd-timesync:x:989:989:systemd Time Synchronization:/:/sbin/nologin
+polkitd:x:987:986:system user for polkit:/usr/lib/polkit-1:/sbin/nologin
+colord:x:986:985:system user for colord:/var/lib/colord:/usr/sbin/nologin
+rtkit:x:985:984:system user for rtkit:/proc:/sbin/nologin
+mysql:x:983:981:system user for mariadb:/var/lib/mysql:/bin/bash
+openvpn:x:982:977:system user for openvpn:/var/lib/openvpn:/bin/true
+lightdm:x:981:976:system user for lightdm:/var/lib/lightdm:/sbin/nologin
+rpc:x:980:975:system user for rpcbind:/var/lib/rpcbind:/sbin/nologin
+apache:x:978:973:system user for webserver-base:/var/www:/bin/sh
+sshd:x:977:972:system user for openssh:/var/empty:/sbin/nologin
+sddm:x:976:971:system user for sddm:/var/lib/sddm:/sbin/nologin
+nagios:x:966:957:system user for nagios:/var/log/nagios:/bin/sh
+nx:x:964:411:system user for freenx:/var/lib/nxserver/nxhome:/usr/bin/nxserver
+
+2.
+yid164@tux8:~/214lab5> egrep '(\b.+\b)\1' sentences.txt
+This is a sentence sentence.
+This is a a another sentence.
+this this is a sentence.
+Another matching matching example.
+
+3.
+(a)
+(1) assume i = 1, j = 10;
+    // find if it works in positive integers if i < j
+(2) assume i = -1, j = -10;
+    // find if it works in negative integers if i > j
+(3) assume i = 0, j = 0;
+    // find if it works in integer 0 if i = j
+
+(b)
+(1) i = 1, j = 0; the code will print out: 1 is smaller than 10
+(2) i = -1, j = -10; the code will print out: -1 is greater than -10
+(3) i = 0, j = 0; the code will print out: 0 is smaller than 0
+in this case we can see that if i = j, the code will print out the i is smaller than j because the code dose not give the i = j condition. What I will do is to add a new condition after (i>j) condition
+
+if(i >j) {
+	printf(“%d is greater than %d.\n”, i, j);
+} else if (i=j){
+	printf(%d is equal %d.\n”, i, j);
+} else{
+	printf(“%d is smaller than %d. \n”, i, j);
+}
+
+4.
+(d)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ g++ -Wall -Wextra leap_year.cc
+leap_year.cc:39:14: warning: unused parameter 'argc' [-Wunused-parameter]
+int main(int argc, char *argv[]) {
+             ^
+leap_year.cc:39:26: warning: unused parameter 'argv' [-Wunused-parameter]
+int main(int argc, char *argv[]) {
+                         ^
+2 warnings generated.
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ ./a.out < leapin.txt >leapout.txt
+
+(e)
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ diff leapout.txt expout.txt > leapdiff.txt
+DONGYINSHENGdeMacBook-Pro:Desktop Ken$ cat leapdiff.txt
+5,6c5,6
+< 200 no
+< 800 no
+---
+> 200 yes
+> 800 yes
+8c8
+< 2000 no
+---
+> 2000 yes
+DONGYINSHENG
+
+(f)
+In the case from 4e, when the input less than 100 or the input’s end is not 0, the isLeap work correctly. When the input greater than 100 or the input’s end is double zero, the isLeap work incorrectly.
