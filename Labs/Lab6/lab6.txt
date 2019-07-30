@@ -1,0 +1,152 @@
+Student Name: Yinsheng Dong
+Student Number: 11148648
+NDID: yid164
+Lecture Section: CMPT 214 T01
+
+1.
+(a).
+yid164@tux6:~/214lab6> g++ -Wall -Wextra datatype_sizes.cc
+datatype_sizes.cc:11:15: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main (int argc, char *argv[])
+               ^
+datatype_sizes.cc:11:32: warning: unused parameter 'argv' [-Wunused-parameter]
+ int main (int argc, char *argv[])
+                                ^
+yid164@tux6:~/214lab6> ./a.out
+sizeof(long int) = 8
+sizeof(float) = 4
+sizeof(double) = 8
+sizeof(float *) =8
+
+(b)
+yid164@tux6:~/214lab6> g++ -Wall -Wextra-m32 datatype_sizes.cc -o 32bits
+g++: error: unrecognized command line option '-Wextra-m32'
+yid164@tux6:~/214lab6> g++ -Wall -Wextra -m32 datatype_sizes.cc -o 32bits
+datatype_sizes.cc:11:15: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main (int argc, char *argv[])
+               ^
+datatype_sizes.cc:11:32: warning: unused parameter 'argv' [-Wunused-parameter]
+ int main (int argc, char *argv[])
+                                ^
+yid164@tux6:~/214lab6> ./32bits
+sizeof(long int) = 4
+sizeof(float) = 4
+sizeof(double) = 8
+sizeof(float *) =4
+yid164@tux6:~/214lab6> g++ -Wall -Wextra -m64 datatype_sizes.cc -o 64bits
+datatype_sizes.cc:11:15: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main (int argc, char *argv[])
+               ^
+datatype_sizes.cc:11:32: warning: unused parameter 'argv' [-Wunused-parameter]
+ int main (int argc, char *argv[])
+                                ^
+yid164@tux6:~/214lab6> ./64bits
+sizeof(long int) = 8
+sizeof(float) = 4
+sizeof(double) = 8
+sizeof(float *) =8
+
+(c)
+To compare these 2 outputs, in 32-bits, sizeof data types long int and float* are 4 bytes, but in the 64-bits, sizeof long int and float become 2 times than 32-bits, reach to 8 bytes, but the double and float datatype, the size of them remains in 8 bytes and 4 bytes, same with 32-bits.
+
+(d)
+yid164@tux6:~/214lab6> file 32bits
+32bits: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=ee6d0e0cb27720be663ef0318ccd9413b6df1458, not stripped
+yid164@tux6:~/214lab6> file 64bits
+64bits: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=b9b9f8573fee94ee717b09afcb5de51cf2dd1f23, not stripped
+
+(e)
+yid164@tux6:~/214lab6> uname -m
+x86_64
+
+2.
+(a)
+i (discrete entities)
+(b)
+ii
+
+3.
+yid164@tux6:~/214lab6> pr -n -t L6Q4.txt
+    1	// target program for Cmpt214 Lab 6 Question 4
+    2	//
+    3	// written by Brett Trost and Tony Kusalik
+    4	//                   October 2009
+    5	
+    6	/* test using 0, 5, -8, and -100 */
+    7	
+    8	int add1(int x) {
+    9		return x + 1;
+   10	}
+   11	
+   12	int subtract1(int x) {
+   13		return x - 1;
+   14	}
+   15	
+   16	int double_it(int x) {
+   17		return x * 2;
+   18	}
+   19	
+   20	int halve_it(int x) {
+   21	return x / 2;
+   22	}
+   23	
+   24	int main( void ) {
+   25		int myint;
+   26		int result;
+   27		scanf("%d", &myint);
+   28		if (myint >= 0) {
+   29			if (myint >= 10) {
+   30				result = halve_it(myint);
+   31			} else {
+   32				result = double_it(myint);
+   33			}
+   34		} else {
+   35			if (myint > -10) {
+   36				result = subtract1(myint);
+   37			} else if (myint > -20) {
+   38				result = 3;
+   39			} else {
+   40				result = add1(myint);
+   41				
+   42			}
+   43	
+   44		return result;
+   45	}
+
+
+4.
+(a)
+case 1: myint = 0, will call the function int double_it()
+case 2: myint = 5, will call the function int double_it()
+case 3: myint = -8, will call the function int subtract1()
+case 4: myint = -100, will call the function int add1 ()
+There are 4 total function, but these cases only called 3. 
+75% test coverage of the functions are actually called .
+
+(b)
+PATH 1: myint > 0 && myint < 10,  if—>if—>double_it()—>if
+PATH 2: myint >=10, if—>if—>halve_it()—>if
+PATH 3: myint >-10, if—>if—>substract1_it(myint)—>if—>if
+PATH 4: myint > -20, if—>if—>substract1—>3—>if
+PATH 5: myint < -20, if—>if—>if—>if—>add1()
+
+case 1: myint = 0 (Path 1)
+case 2: myint = 5  (Path 1)
+case 3: myint = -8  (path 3 and path 4)
+case 4: myint—> -100  (path 5)
+
+these cases are token 4 paths, 4/5 = 80% coverage
+
+(c)
+
+case 1: myint = 0 (true)
+case 2: myint = 5  (true)
+case 3: myint = -8  (false)
+case 4: myint—> -100  (false)
+the coverage 2/4 = 50% coverage
+
+(4)
+The (a)’s result coverage is 75% for function test
+The (b)’s result coverage is 80% for path test
+The (c)’s result coverage is 50% for conditional test
+We can now conclude for the four test cases(0, 5, -8, and -100), they could not cover every possibilities that the code provide.

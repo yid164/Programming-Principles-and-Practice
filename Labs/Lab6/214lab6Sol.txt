@@ -1,0 +1,143 @@
+-----
+1 (a)
+-----
+
+/* 
+ * program to determine the size of four standard datatypes
+ * used by C/C++
+ *
+ * Author: Tony Kusalik
+ */
+#include <stdio.h>
+int main( void ) {
+  printf( "sizeof long int is %zu\n", sizeof( long int ) );
+  printf( "sizeof float is %zu\n", sizeof( float ) );
+  printf( "sizeof double is %zu\n", sizeof( double ) );
+  printf( "sizeof pointer-to-float is %zu\n", sizeof( float * ) );
+
+  return 0;
+}
+
+----
+1(b)
+----
+
+on the Macs
+
+g++ -Wall -Wextra -o 32bit_sizes -m32 -Wall -Wextra datatype_sizes.cc
+
+g++ -Wall -Wextra -o 64bit_sizes -m64 -Wall -Wextra datatype_sizes.cc
+
+or on tuxworld
+
+tux4(8)% g++ -Wall -Wextra -o 32bit_sizes -m32 -Wall -Wextra datatype_sizes.cc 
+
+tux4(9)% g++ -Wall -Wextra -o 64bit_sizes -m64 -Wall -Wextra datatype_sizes.cc
+
+or on the Macs
+
+g++ -Wall -Wextra -o 32bit_sizes -arch i386 -Wall -Wextra datatype_sizes.cc
+
+g++ -Wall -Wextra -o 64bit_sizes -arch x86_64 -Wall -Wextra datatype_sizes.cc
+
+-----
+2 (b)
+-----
+
+ii
+
+-----
+4 (a)
+-----
+
+function coverage: 3/4 or 75%
+
+Functions add1(), subtract1(), and double_it() will be called, but not halve_it().  Hence 3 of 4 functions will be called as a result of the input values in the test set.
+
+-----
+4 (b)
+-----
+
+3 of 5 paths were covered.  Therefore path coverage is 3/5 or 60%
+
+Expansion on the answer:
+
+There are 5 possible paths through the code --
+
+There are 5 possible paths through the code:
+
+one:
+   27		scanf("%d", &myint);
+   28		if (myint >= 0) {
+   29			if (myint >= 10) {
+   30				result = halve_it(myint);
+   44		return result;
+
+two:
+   27		scanf("%d", &myint);
+   28		if (myint >= 0) {
+   29			if (myint >= 10) {
+   31			} else {
+   32				result = double_it(myint);
+   44		return result;
+
+three:
+   27		scanf("%d", &myint);
+   28		if (myint >= 0) {
+   34		} else {
+   35			if (myint > -10) {
+   36				result = subtract1(myint);
+   44		return result;
+
+four:
+   27		scanf("%d", &myint);
+   28		if (myint >= 0) {
+   34		} else {
+   35			if (myint > -10) {
+   37			} else if (myint > -20) {
+   38				result = 3;
+   44		return result;
+
+five:
+   27		scanf("%d", &myint);
+   28		if (myint >= 0) {
+   34		} else {
+   35			if (myint > -10) {
+   37			} else if (myint > -20) {
+   39			} else {
+   40				result = add1(myint);
+   44		return result;
+
+input    takes path
+  0         two
+  5         two
+ -8         three
+-100        five
+
+3 of 5 paths were covered.  Therefore path coverage
+is 3/5 or 60%
+
+-----
+4 (c)
+-----
+
+Condition coverage: 2/4 or 50%
+
+Expansion on the answer:
+
+There are 4 branches in the code:
+
+line number     branch
+   28		if (myint >= 0) {
+   29		if (myint >= 10) {
+   35		if (myint > -10) {
+   37		if (myint > -20) {
+
+for the given test cases, these conditions are evaluated to the follow values:
+   28		(myint >= 0) true, false
+   29		(myint >= 10) false
+   35		(myint > -10) true, false
+   37		(myint > -20) false
+
+Hence the conditions in lines 28 and 35 are evaluated to both true and false.
+That is, two of the four conditions are "covered" by the test cases.

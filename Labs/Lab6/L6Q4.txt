@@ -1,0 +1,45 @@
+// target program for Cmpt214 Lab 6 Question 4
+//
+// written by Brett Trost and Tony Kusalik
+//                   October 2009
+
+/* test using 0, 5, -8, and -100 */
+
+int add1(int x) {
+	return x + 1;
+}
+
+int subtract1(int x) {
+	return x - 1;
+}
+
+int double_it(int x) {
+	return x * 2;
+}
+
+int halve_it(int x) {
+return x / 2;
+}
+
+int main( void ) {
+	int myint;
+	int result;
+	scanf("%d", &myint);
+	if (myint >= 0) {
+		if (myint >= 10) {
+			result = halve_it(myint);
+		} else {
+			result = double_it(myint);
+		}
+	} else {
+		if (myint > -10) {
+			result = subtract1(myint);
+		} else if (myint > -20) {
+			result = 3;
+		} else {
+			result = add1(myint);
+			
+		}
+
+	return result;
+}
