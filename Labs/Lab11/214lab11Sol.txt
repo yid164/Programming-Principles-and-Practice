@@ -1,0 +1,156 @@
+---
+ 1
+---
+
+bash-4.3$ gcc -Wall -Wextra -g -o factorial factorial.c
+bash-4.3$ gdb factorial
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from factorial...done.
+(gdb) break fact
+Breakpoint 1 at 0x400633: file factorial.c, line 9.
+(gdb) run
+Starting program: /faculty/kusalik/test/factorial 
+
+Breakpoint 1, fact (n=0) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+0! = 1
+
+Breakpoint 1, fact (n=1) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=0) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+1! = 1
+
+Breakpoint 1, fact (n=2) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=1) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=0) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+2! = 2
+
+Breakpoint 1, fact (n=3) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=2) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=1) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=0) at factorial.c:9
+9	  if( 0 == n ) {
+(gdb) n
+10	    return 1;
+(gdb) bt
+#0  fact (n=0) at factorial.c:9
+#1  0x000000000040064d in fact (n=1) at factorial.c:13
+#2  0x000000000040064d in fact (n=2) at factorial.c:13
+#3  0x000000000040064d in fact (n=3) at factorial.c:13
+#4  0x000000000040066e in main () at factorial.c:22
+(gdb) frame 4
+#4  0x000000000040066e in main () at factorial.c:22
+22	    f = fact( i );
+(gdb) print i
+$1 = 3
+(gdb) print f
+$2 = 2
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 56098] will be killed.
+
+Quit anyway? (y or n) y
+
+------
+ 4(a)
+------
+
+bash-4.3$ rm -f foobar
+bash-4.3$ if test -f foobar; then
+> echo "foobar does exist"
+> else
+> echo "foobar does not exist"
+> fi
+foobar does not exist
+bash-4.3$ touch foobar
+bash-4.3$ if test -f foobar; then
+> echo "foobar does exist"
+> else
+> echo "foobar does not exist"
+> fi
+foobar does exist
+
+------
+ 4(b)
+------
+
+bash-4.3$ rm -f foobar
+bash-4.3$ if [ -f foobar ] ; then
+> echo "foobar does exist"
+> else
+> echo "foobar does not exist"
+> fi
+foobar does not exist
+bash-4.3$ touch foobar
+bash-4.3$ if [ -f foobar ] ; then
+> echo "foobar does exist"
+> else
+> echo "foobar does not exist"
+> fi
+foobar does exist
+
+------
+ 4(c)
+------
+
+bash-4.3$ rm -f foobar
+bash-4.3$ if ls foobar > /dev/null 2>&1
+> then
+> echo "foobar does exist"
+> else
+> echo "foobar does not exist"
+> fi
+foobar does not exist
+bash-4.3$ touch foobar
+bash-4.3$ if ls foobar > /dev/null 2>&1
+> then
+> echo "foobar does exist"
+> else
+> echo "foobar does not exist"
+> fi
+foobar does exist

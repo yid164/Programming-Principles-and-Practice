@@ -1,0 +1,215 @@
+Student Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+1.
+yid164@tux8:~/214lab11> gcc -Wall -Wextra -g -o factorial factorial.c
+yid164@tux8:~/214lab11> ls
+Lab11Files.tar	factorial.c	     password.sh*
+factorial*	factorial_stack.pdf  substrates.txt
+yid164@tux8:~/214lab11> gdb factorial
+GNU gdb (GDB) 7.8.1-7.mga5 (Mageia release 5)
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-mageia-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from factorial...done.
+(gdb) run
+Starting program: /tmp_mnt/student/yid164/214lab11/factorial 
+0! = 1
+1! = 1
+2! = 2
+3! = 6
+4! = 24
+5! = 120
+6! = 720
+7! = 5040
+8! = 40320
+9! = 362880
+[Inferior 1 (process 2252) exited normally]
+(gdb) break 10
+Breakpoint 1 at 0x400639: file factorial.c, line 10.
+(gdb) break 13
+Breakpoint 2 at 0x400640: file factorial.c, line 13.
+(gdb) break 22
+Breakpoint 3 at 0x400664: file factorial.c, line 22.
+(gdb) run
+Starting program: /tmp_mnt/student/yid164/214lab11/factorial 
+
+Breakpoint 3, main () at factorial.c:22
+22	    f = fact( i );
+(gdb) p i=3
+$1 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 2, fact (n=3) at factorial.c:13
+13	    return n * fact( n - 1 );
+(gdb) c
+Continuing.
+
+Breakpoint 2, fact (n=2) at factorial.c:13
+13	    return n * fact( n - 1 );
+(gdb) c
+Continuing.
+
+Breakpoint 2, fact (n=1) at factorial.c:13
+13	    return n * fact( n - 1 );
+(gdb) c
+Continuing.
+
+Breakpoint 1, fact (n=0) at factorial.c:10
+10	    return 1;
+(gdb) bt
+#0  fact (n=0) at factorial.c:10
+#1  0x000000000040064d in fact (n=1) at factorial.c:13
+#2  0x000000000040064d in fact (n=2) at factorial.c:13
+#3  0x000000000040064d in fact (n=3) at factorial.c:13
+#4  0x000000000040066e in main () at factorial.c:22
+(gdb) bt full
+#0  fact (n=0) at factorial.c:10
+No locals.
+#1  0x000000000040064d in fact (n=1) at factorial.c:13
+No locals.
+#2  0x000000000040064d in fact (n=2) at factorial.c:13
+No locals.
+#3  0x000000000040064d in fact (n=3) at factorial.c:13
+No locals.
+#4  0x000000000040066e in main () at factorial.c:22
+        i = 3
+        f = 0
+(gdb) info frame 0x7fffffffddf0
+Stack frame at 0x7fffffffddf0:
+ rip = 0x40066e in main (factorial.c:22); saved rip = 0x7ffff7a49050
+ caller of frame at 0x7fffffffddd0
+ source language c.
+ Arglist at 0x7fffffffdde0, args: 
+ Locals at 0x7fffffffdde0, Previous frame's sp is 0x7fffffffddf0
+ Saved registers:
+  rbp at 0x7fffffffdde0, rip at 0x7fffffffdde8
+(gdb) info locals 
+i = 3
+f = 0
+
+2.
+(a)
+yid164@tux8:~/214lab11> set -x
+++ history -a
+
+(b)
+yid164@tux8:~> /bin/ls -l `which sh` `which bash`
+++ which sh
+++ which bash
++ /bin/ls -l /bin/sh /bin/bash
+-rwxr-xr-x 1 root root 860512 Nov 17 18:09 /bin/bash
+lrwxrwxrwx 1 root root      4 Nov 17 18:09 /bin/sh -> bash
+++ history -a
+
+(c)
+yid164@tux8:~/214lab11> set -
++ set -
+
+(d)
+the command “history -a”, “which sh”, which bash and “ls -l” are being executed in this order
+
+(e)
+based on 2b the bash can understand implementations of sh
+
+3.
+(a)
+yid164@tux8:~> ls
+214a1/	   ABC DEF	Lab10/	      Templates/	   svn-commit.2.tmp~
+214bin/    CMPT260SQL/	Links/	      Videos/		   svn-commit.tmp
+214lab1/   Contacts/	Music/	      datatype_sizes.cc    svnURL/
+214lab11/  Desktop/	Pictures/     favourite_movie.txt  tags/
+214lab2/   Documents/	S7N	      file1.txt		   top_output.txt
+214lab3/   Downloads/	S7N 5C9       file2.txt		   trunk/
+214lab4/   Favorites/	S7T 0R9       forA3/		   yid164/
+214lab5/   Lab09/	Saved Games/  ls
+214lab6/   Lab09Wrk/	Searches/     svn
+yid164@tux8:~> rm -f foobar
+
+(b)
+yid164@tux8:~> ls foobar
+ls: cannot access foobar: No such file or directory
+
+(c)
+yid164@tux8:~> echo $?
+2
+
+(d)
+yid164@tux8:~> echo $?
+0
+
+(e)
+becasue $? expands to the last statement’s return code, and it means the last echo statement was sucessful.
+
+4. 
+yid164@tux8:~> if test -e [foobar]
+> then
+> echo "foobar does exist"
+> (pwd; ls -l) > out
+> else
+> echo "foobar does not exist"
+> (pwd; ls -l) >/dev/null
+> fi
+foobar does not exist
+
+5.
+(a)
+yid164@tux6:~/214lab11> touch substrates2.txt 
+yid164@tux6:~/214lab11> cut -f 4-7 substrates.txt >temp1.txt
+yid164@tux6:~/214lab11> cut -f 1-3 substrates.txt>temp2.txt
+yid164@tux6:~/214lab11> cut -f 8-10 substrates.txt>temp3.txt
+yid164@tux6:~/214lab11> paste temp1.txt temp2.txt temp3.txt >substrates2.txt
+yid164@tux6:~/214lab11> rm -f temp1.txt temp2.txt temp3.txt
+yid164@tux6:~/214lab11> ls
+Lab11Files.tar	factorial.c	     password.sh*    substrates2.txt
+factorial*	factorial_stack.pdf  substrates.txt
+yid164@tux6:~/214lab11> wc -lcmw substrates.txt substrates2.txt
+  12104  121966  861561  861561 substrates.txt
+  12104  121966  861561  861561 substrates2.txt
+
+(b)
+yid164@tux6:~/214lab11> ls
+Lab11Files.tar	factorial.c	     move_columns.sh*  substrates.txt
+factorial*	factorial_stack.pdf  password.sh*
+yid164@tux6:~/214lab11> ./move_columns.sh substrates.txt >substrates2.txt 
+yid164@tux6:~/214lab11> wc -lcmw substrates.txt substrates2.txt
+  12104  121966  861561  861561 substrates.txt
+  12104  121966  861561  861561 substrates2.txt
+  24208  243932 1723122 1723122 total
+
+6.
+(a)
+yid164@tux6:~/214lab11> gen_pass
+-bash: gen_pass: command not found
+
+(b)
+yid164@tux6:~/214lab11> ./password.sh 
+yid164@tux6:~/214lab11> 
+
+(c)
+yid164@tux6:~/214lab11> gen_pass
+-bash: gen_pass: command not found
+
+(d)
+yid164@tux6:~/214lab11> source password.sh
+
+(e)
+yid164@tux6:~/214lab11> gen_pass
+8xDSuicgY
+
+(f)
+the (d) allowed me to thereafter successfully use gen_pass.
