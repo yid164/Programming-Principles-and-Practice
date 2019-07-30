@@ -1,0 +1,217 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214 T01
+
+1.
+(a)
+
+Last login: Wed Sep 21 12:30:13 on ttys000
+smac9:~ yid164$ ssh -XY yid164@tuxworld.usask.ca
+yid164@tuxworld.usask.ca's password: 
+Last login: Wed Sep 21 12:33:48 2016 from smac9.usask.ca
+yid164@tux6:~> mkdir 214lab2
+yid164@tux6:~> ls
+214bin/   Contacts/   Downloads/  Music/	Searches/
+214lab1/  Desktop/    Favorites/  Pictures/	Templates/
+214lab2/  Documents/  Links/	  Saved Games/	Videos/
+yid164@tux6:~> cd 214lab2
+yid164@tux6:~/214lab2> touch file{1..15}.txt data{1..5}.dat
+yid164@tux6:~/214lab2> ls
+data1.dat  data4.dat  file10.txt  file13.txt  file2.txt  file5.txt  file8.txt
+data2.dat  data5.dat  file11.txt  file14.txt  file3.txt  file6.txt  file9.txt
+data3.dat  file1.txt  file12.txt  file15.txt  file4.txt  file7.txt
+
+(b)
+yid164@tux6:~/214lab2> ls *.dat
+data1.dat  data2.dat  data3.dat  data4.dat  data5.dat
+
+(c)
+yid164@tux6:~/214lab2> ls -l file{10..15}.txt
+-rw-r----- 1 yid164 student 0 Sep 21 12:36 file10.txt
+-rw-r----- 1 yid164 student 0 Sep 21 12:36 file11.txt
+-rw-r----- 1 yid164 student 0 Sep 21 12:36 file12.txt
+-rw-r----- 1 yid164 student 0 Sep 21 12:36 file13.txt
+-rw-r----- 1 yid164 student 0 Sep 21 12:36 file14.txt
+-rw-r----- 1 yid164 student 0 Sep 21 12:36 file15.txt
+
+(d)
+yid164@tux6:~/214lab2> file file{1,3,4,6,9}.txt
+file1.txt: empty
+file3.txt: empty
+file4.txt: empty
+file6.txt: empty
+file9.txt: empty
+
+2.
+(a)
+yid164@tux6:~/214lab2> rm -f fake_file.txt
+yid164@tux6:~/214lab2> 
+
+(b)
+yid164@tux6:~/214lab2> cat my_name.txt fake_file.txt
+Name: Yinsheng Dong
+Student Number: 11148648
+cat: fake_file.txt: No such file or directory
+
+(c)
+yid164@tux6:~/214lab2> cat my_name.txt fake_file.txt>standard_output.txt 2>standard_error.txt
+yid164@tux6:~/214lab2> ls
+data1.dat  data5.dat   file12.txt  file2.txt  file6.txt  my_name.txt
+data2.dat  file1.txt   file13.txt  file3.txt  file7.txt  standard_error.txt
+data3.dat  file10.txt  file14.txt  file4.txt  file8.txt  standard_output.txt
+data4.dat  file11.txt  file15.txt  file5.txt  file9.txt
+yid164@tux6:~/214lab2> cat standard_output.txt
+Name: Yinsheng Dong
+Student Number: 11148648
+yid164@tux6:~/214lab2> cat standard_error.txt
+cat: fake_file.txt: No such file or directory
+
+(d)
+yid164@tux6:~/214lab2> cat standard_error.txt
+cat: fake_file.txt: No such file or directory
+yid164@tux6:~/214lab2> rm standard_error.txt
+rm: remove regular file 'standard_error.txt'? y
+yid164@tux6:~/214lab2> rm standard_output.txt
+rm: remove regular file 'standard_output.txt'? y
+yid164@tux6:~/214lab2> ls
+data1.dat  data4.dat  file10.txt  file13.txt  file2.txt  file5.txt  file8.txt
+data2.dat  data5.dat  file11.txt  file14.txt  file3.txt  file6.txt  file9.txt
+data3.dat  file1.txt  file12.txt  file15.txt  file4.txt  file7.txt  my_name.txt
+yid164@tux6:~/214lab2> cat my_name.txt fake_file.txt >standard_output.txt 2>&1
+yid164@tux6:~/214lab2> cat standard_output.txt
+Name: Yinsheng Dong
+Student Number: 11148648
+cat: fake_file.txt: No such file or directory
+yid164@tux6:~/214lab2> ls
+data1.dat  data5.dat   file12.txt  file2.txt  file6.txt  my_name.txt
+data2.dat  file1.txt   file13.txt  file3.txt  file7.txt  standard_output.txt
+data3.dat  file10.txt  file14.txt  file4.txt  file8.txt
+data4.dat  file11.txt  file15.txt  file5.txt  file9.txt
+
+3.
+(a)
+yid164@tux6:~/214lab2> top
+
+top - 12:53:37 up 137 days, 23:26,  7 users,  load average: 48.64, 48.58, 48.64
+Tasks: 1688 total,  49 running, 1637 sleeping,   2 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,100.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem:  13193443+total, 32422560 used, 99511872 free,   677240 buffers
+KiB Swap: 16769952 total,   498720 used, 16271232 free. 28025820 cached Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND    
+30764 boinc     39  19    8504   7912   2196 R 100.0  0.0   2175:13 yafu       
+35503 boinc     39  19  203908  80332   6040 R 100.1  0.1 546:11.83 wcgrid_fah+
+37792 boinc     39  19  204180  80968   6040 R 100.1  0.1 487:39.00 wcgrid_fah+
+39145 boinc     39  19  203488  80252   6040 R 100.1  0.1 450:33.59 wcgrid_fah+
+42713 boinc     39  19  205144  80644   6040 R 100.1  0.1 348:37.28 wcgrid_fah+
+45338 boinc     39  19  304524   7976   5624 R 100.1  0.0 274:08.22 GetDecics_+
+45370 boinc     39  19  304524   7976   5624 R 100.1  0.0 273:06.18 GetDecics_+
+45595 boinc     39  19  304524   7976   5624 R 100.1  0.0 266:31.87 GetDecics_+
+45897 boinc     39  19  304524   7972   5624 R 100.1  0.0 258:07.02 GetDecics_+
+45920 boinc     39  19  304524   7976   5624 R 100.1  0.0 257:19.36 GetDecics_+
+46473 boinc     39  19  304524   8188   5824 R 100.1  0.0 244:30.89 GetDecics_+
+46596 boinc     39  19  304524   7972   5624 R 100.1  0.0 240:55.54 GetDecics_+
+47458 boinc     39  19  304524   7972   5624 R 100.1  0.0 219:27.38 GetDecics_+
+47559 boinc     39  19  304524   7972   5624 R 100.1  0.0 217:04.65 GetDecics_+
+48081 boinc     39  19  304524   7972   5624 R 100.1  0.0 204:06.20 GetDecics_+
+49242 boinc     39  19  304524   7976   5624 R 100.1  0.0 175:53.14 GetDecics_+
+50592 boinc     39  19  304524   7868   5520 R 100.1  0.0 140:05.25 GetDecics_+
+[2]+  Stopped                 top
+
+(b)
+yid164@tux6:~/214lab2> env
+BIBINPUTS=.:/student/yid164/tex/bib:
+MANPATH=/usr/man:/usr/local/man:/usr/share/man:/cs/man
+XDG_SESSION_ID=c3225
+HOSTNAME=tux6
+CN3D_HOME=/student/binfo/Cn3D-4.1
+GPG_AGENT_INFO=/tmp/gpg-kvsaar/S.gpg-agent:38924:1
+HOST=tux6
+TERM=xterm-256color
+SHELL=/bin/bash
+QT5DOCDIR=/usr/share/doc/qt5
+CANBERRA_DRIVER=pulse
+LC_SOURCED=1
+HISTSIZE=1000
+TMPDIR=/tmp
+SSH_CLIENT=10.80.2.132 52964 22
+MGA_MENU_STYLE=mageia
+QTDIR=/usr/lib64/qt4
+OS=Linux
+SSH_TTY=/dev/pts/47
+LC_ALL=C
+QTDIR5=/usr/lib64/qt5
+USER=yid164
+PHRED_PARAMETER_FILE=/student/binfo/databases/PhredPar/phredpar.dat
+LD_LIBRARY_PATH=:/usr/lib:/usr/local/lib
+QT4DOCDIR=/usr/share/doc/qt4
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.iso=01;31:*.jpg=01;35:*.jpeg=01;35:*.JPG=01;35:*.JPEG=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.ico=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.divx=01;35:*.xvid=01;35:*.3gp=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.gem=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:*.mp2=00;36:*.mod=00;36:*.xm=00;36:*.s3m=00;36:*.it=00;36:*.wma=00;36:*~=47;30:*.bak=47;30:*.swp=47;30:*.bck=47;30:*.bk=47;30:*.old=47;30:*.tmp=47;30:*.save=47;30:*.rpmsave=47;30:*.rpmnew=47;30:
+PILOTPORT=usb:
+PLPLOT_LIB=/student/binfo/EMBOSS-6.0.1/plplot/lib
+SYSTEMD_PAGER=/usr/bin/less -FR
+SCREENDIR=/student/yid164/tmp
+NLSPATH=/usr/share/locale/%l/%N
+MAIL=/var/spool/mail/yid164
+PATH=/bin:/usr/bin:/usr/local/bin:/student/binfo/bin:.
+INPUTRC=/etc/inputrc
+PWD=/student/yid164/214lab2
+SMLNJ_HOME=/usr/local
+EDITOR=vi
+LANG=en_CA.UTF-8
+PYTHONSTARTUP=/etc/pythonrc.py
+PS1=\u@\h:\w> 
+SSH_ASKPASS=/usr/lib64/ssh/ssh-askpass
+HISTCONTROL=ignoredups
+TEXINPUTS=.:/student/yid164/tex/inputs:
+LESSCHARSET=utf-8
+SHLVL=1
+HOME=/student/yid164
+CONSED_HOME=/student/binfo
+LANGUAGE=en_CA.UTF-8:en_US:en
+GCONF_TMPDIR=/tmp
+G_FILENAME_ENCODING=@locale
+TMP=/tmp
+LOGNAME=yid164
+CVS_RSH=ssh
+PRINTER=UNKNOWN
+SSH_CONNECTION=10.80.2.132 52964 128.233.236.7 22
+LESSOPEN=|/usr/bin/lesspipe.sh %s
+META_CLASS=download
+_pam_krb5_stash_yid164_USASK.CA__1_shm=103155186/57163
+DISPLAY=localhost:10.0
+LADSPA_PATH=/usr/lib64/ladspa/
+UMLET_HOME=/usr/local/UMLet
+_=/bin/env
+OLDPWD=/student/yid164
+
+(c)
+yid164@tux6:~/214lab2> pstree -p $USER
+gpg-agent(34456)
+
+gpg-agent(38924)
+
+gpg-agent(49044)
+
+sshd(57186)---bash(57187)-+-cat(57606)
+                          |-pstree(58086)
+                          `-top(57958)
+
+systemd(34399)---(sd-pam)(34401)
+
+(d)
+yid164@tux6:~/214lab2> kill -9 57958
+[2]+  Killed                  top
+
+(e)
+yid164@tux6:~/214lab2> pstree -p $USER
+gpg-agent(34456)
+
+gpg-agent(38924)
+
+gpg-agent(49044)
+
+sshd(57186)---bash(57187)-+-cat(57606)
+                          `-pstree(58148)
+
+systemd(34399)---(sd-pam)(34401)
