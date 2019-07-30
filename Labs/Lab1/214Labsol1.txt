@@ -1,0 +1,193 @@
+Student Name
+Student Number
+NSID
+
+CMPT 214 Lab 1 Solution
+
+----
+1(a)
+----
+bash-3.2$ mkdir 214bin 214lab1
+
+or
+
+bash-3.2$ mkdir 214bin
+bash-3.2$ mkdir 214lab1
+
+
+----
+1(b)
+----
+bash-3.2$ mv Downloads/ls 214bin
+bash-3.2$ chmod u+x 214bin/ls
+
+----
+1(c)
+----
+bash-3.2$ cd 214lab1
+
+or
+
+bash-3.2$ pushd 214lab1
+
+----
+1(d)
+----
+bash-3.2$ ls $HOME
+214bin			Public			temp.pdf
+214lab1			Sites			temp.rtf
+Applications		StuffIt			temp.txt
+April 25 meeting	TransformUS		temp.xlsx
+Desktop			bin			temp1.pdf
+Documents		data			temp1.rtf
+Downloads		excludes		temp10.pdf
+Dropbox			files.txt		temp2.pdf
+IKEA order.2.pdf	gift.page1.graffle	temp2.rtf
+IKEA order.3.pdf	gift.page2.graffle	temp3.pdf
+IKEA order.pdf		group			temp4.pdf
+Ikea order.ods		lib			temp5.pdf
+JavaTreeView Config	maureen.oo3		temp6.pdf
+Library			ss.pax			temp7.pdf
+Mac specs.txt		ss.tar			temp8.pdf
+Mail			ss.tgz			temp9.pdf
+Movies			ss2.pax			test.c
+Music			temp			test.pl
+Pictures		temp.html
+
+or
+
+bash-3.2$ ls ~
+
+or 
+
+bash-3.2$ ls ~/
+
+or if the previous command was cd 214lab1
+
+bash-3.2$ ls ..
+
+----
+1(e)
+----
+bash-3.2$ PATH=$HOME/214bin:$PATH
+
+----
+1(f)
+----
+bash-3.2$ ls
+This is not the real ls!
+
+----
+1(g)
+----
+bash-3.2$ which ls
+/faculty/kusalik/214bin/ls
+
+----
+1(h)
+----
+bash-3.2$ more $HOME/214bin/ls
+#!/usr/bin/perl
+print "This is not the real ls!\n";
+
+or
+
+bash-3.2$ more ../214bin/ls
+#!/usr/bin/perl
+print "This is not the real ls!\n";
+
+----
+2(a)
+----
+bash-3.2$ tcsh
+[ismac3:~] exit
+exit
+
+-------
+2(b)(i)
+-------
+bash-3.2$ echo "echo you have started tcshrc"
+
+or
+
+bash-3.2$ printf "echo you have started tcshrc\n"
+
+-------
+2(b)(iii)
+-------
+bash-3.2$ more $HOME/.tcshrc
+echo you have started tcshrc
+
+or
+
+bash-3.2$ more ~/.tcshrc
+echo you have started tcshrc
+
+-------
+2(b)(iv)
+-------
+bash-3.2$ tcsh
+you have started tcshrc
+
+-------
+2(b)(v)
+-------
+[ismac3:~] kusalik% exit
+bash-3.2$
+
+----
+3(a)
+----
+bash-3.2$ whatis editor > editor.txt
+
+----
+3(b)
+----
+bash-3.2$ set -C
+bash-3.2$ whatis editor > editor.txt
+bash: editor.txt: cannot overwrite existing file
+
+---
+ 4
+---
+
+bash-3.2$ bash --version
+GNU bash, version 3.2.51(1)-release (x86_64-apple-darwin13)
+Copyright (C) 2007 Free Software Foundation, Inc.
+
+or
+
+bash-3.2$ bash --version
+GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin14)
+Copyright (C) 2007 Free Software Foundation, Inc.
+
+or 
+
+bash-3.2$ bash --help
+GNU bash, version 3.2.57(1)-release-(x86_64-apple-darwin14)
+Usage:	bash [GNU long option] [option] ...
+	bash [GNU long option] [option] script-file ...
+GNU long options:
+	--debug
+	--debugger
+	--dump-po-strings
+	--dump-strings
+	--help
+	--init-file
+	--login
+	--noediting
+	--noprofile
+	--norc
+	--posix
+	--protected
+	--rcfile
+	--restricted
+	--verbose
+	--version
+	--wordexp
+Shell options:
+	-irsD or -c command or -O shopt_option		(invocation only)
+	-abefhkmnptuvxBCHP or -o option
+Type `bash -c "help set"' for more information about shell options.
+Type `bash -c help' for more information about shell builtin commands.
+Use the `bashbug' command to report bugs.

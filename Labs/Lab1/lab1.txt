@@ -1,0 +1,127 @@
+Student Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT214 T01
+
+1.
+(a)
+
+smac9:~ yid164$ touch lab1.txt
+smac9:~ yid164$ mkdir 214bin
+smac9:~ yid164$ mkdir 214lab1
+smac9:~ yid164$ ls
+214bin		Applications	Documents	Library		Music
+214lab1		Desktop		Downloads	Movies		Picture
+
+(b)
+
+smac9:~ yid164$ cd Downloads
+smac9:Downloads yid164$ ls
+ls
+smac9:Downloads yid164$ mv ls /student/machome/yid164/214bin
+smac9:Downloads yid164$ cd ..
+smac9:~ yid164$ cd 214bin
+smac9:214bin yid164$ ls
+ls
+smac9:214bin yid164$ chmod u+x ls
+smac9:214bin yid164$ ls
+ls
+smac9:214bin yid164$ pwd
+/student/machome/yid164/214bin
+
+(c)
+
+smac9:214bin yid164$ cd ..
+smac9:~ yid164$ cd 214lab1
+smac9:214lab1 yid164$ pwd
+/student/machome/yid164/214lab1
+
+(d)
+smac9:214lab1 yid164$ ls /student/machome/yid164
+214bin		Applications	Documents	Library		Music
+214lab1		Desktop		Downloads	Movies		Pictures
+
+(e)
+
+smac9:214lab1 yid164$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
+smac9:214lab1 yid164$ PATH=/student/machome/yid164/214bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
+
+(f)
+
+smac9:214lab1 yid164$ ls /student/machome/yid164
+This is not the real ls
+
+(g)
+
+smac9:214lab1 yid164$ which ls
+/student/machome/yid164/214bin/ls
+
+(h)
+
+smac9:214lab1 yid164$ cat /student/machome/yid164/214bin/ls
+#!/usr/bin/perl
+
+print "This is not the real ls!\n";
+
+2.
+(a)
+
+smac9:~ yid164$ tcsh
+[smac9:~] yid164% exit
+exit
+
+(b)
+ (i)
+
+smac9:~ yid164$ echo You have started tcshrc
+You have started tcshrc
+
+ (ii, iii)
+smac9:~ yid164$ cat /student/machome/yid164/Desktop/new.tcshrc
+You have started tcshrc
+
+ (iv)
+smac9:~ yid164$ tcsh
+[smac9:~] yid164% 
+
+ (v)
+[smac9:~] yid164% exit
+exit
+
+3.
+(a)
+smac9:~ yid164$ touch editor.txt
+smac9:~ yid164$ whatis editor
+dyld(1)                  - the dynamic link editor
+ed(1), red(1)            - text editor
+nano(1)                  - Nano's ANOther editor, an enhanced free Pico clone
+pdisk(8)                 - Apple partition table editor
+psed(1)                  - a stream editor
+sed(1)                   - stream editor
+vim(1)                   - Vi IMproved, a programmers text editor
+zshzle(1)                - zsh command line editor
+smac9:~ yid164$ whatis editor > editor.txt
+smac9:~ yid164$ cat editor.txt
+dyld(1)                  - the dynamic link editor
+ed(1), red(1)            - text editor
+nano(1)                  - Nano's ANOther editor, an enhanced free Pico clone
+pdisk(8)                 - Apple partition table editor
+psed(1)                  - a stream editor
+sed(1)                   - stream editor
+vim(1)                   - Vi IMproved, a programmers text editor
+zshzle(1)                - zsh command line editor
+
+(b)
+
+smac9:~ yid164$ set -o noclobber
+smac9:~ yid164$ cat > editor.txt
+-bash: editor.txt: cannot overwrite existing file
+smac9:~ yid164$ whatis editor > editor.txt
+-bash: editor.txt: cannot overwrite existing file
+
+4.
+smac9:~ yid164$ bash -version
+GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin14)
+Copyright (C) 2007 Free Software Foundation, Inc.
+
