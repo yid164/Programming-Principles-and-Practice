@@ -1,0 +1,127 @@
+bash-4.3$ awk '$4 < 50 { if( $4 != "-" ) print $1 }' country_data_cleaned.txt
+Afghanistan
+Bangladesh
+Benin
+Bhutan
+Burkina_Faso
+Burundi
+Central_African_Republic
+Chad
+Côte_d'Ivoire
+Ethiopia
+Gambia
+Guinea
+Guinea-Bissau
+Iraq
+Mali
+Mauritania
+Morocco
+Mozambique
+Nepal
+Niger
+Pakistan
+Senegal
+Sierra_Leone
+Yemen
+
+or
+
+bash-4.3$ awk '$4 < 50 && $4 !~ /-/ { print $1 }' country_data_cleaned.txt
+Afghanistan
+Bangladesh
+Benin
+Bhutan
+Burkina_Faso
+Burundi
+Central_African_Republic
+Chad
+Côte_d'Ivoire
+Ethiopia
+Gambia
+Guinea
+Guinea-Bissau
+Iraq
+Mali
+Mauritania
+Morocco
+Mozambique
+Nepal
+Niger
+Pakistan
+Senegal
+Sierra_Leone
+Yemen
+
+or
+
+awk '($4 < 50) && ($4 != "-") {print $1}' < country_data_cleaned.txt
+
+****
+ 1d
+****
+
+bash-4.3$ awk -f population.awk country_data_cleaned.txt 
+118071
+
+****
+ 1e
+****
+
+bash-4.3$ awk -v OFS='\t' '{print $0,$3/($2/2)}' country_data_cleaned.txt > country_data_birthrate.txt
+
+or
+
+bash-4.3$ awk -v OFS='\t' '{br = $3 / ($2 / 2); print $0, br }' country_data.txt > country_data_birthrate.txt
+
+or
+
+awk 'OFS="\t" {$5 = $3/($2/2); print $1, $2, $3, $4, $5}' \
+  < country_data_cleaned.txt > country_data_birthrate.txt
+
+****
+ 3a
+****
+
+bash-4.3$ g++ -Wall -Wextra -I/student/214/include -c queens.cc
+bash-4.3$
+
+****
+ 3b
+****
+
+bash-4.3$ g++ -o queens -L/student/214/lib -lqueens queens.o
+bash-4.3$
+
+****
+ 3c
+****
+
+bash-4.3$ ./queens
+./queens: error while loading shared libraries: libqueens.so: cannot open shared object file: No such file or directory
+bash-4.3$ echo $LD_LIBRARY_PATH
+/birlsw/lib:/research/molbio/lib/linux:/usr/local/lib:/cs/lib:/usr/lib:.
+bash-4.3$ LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/student/214/lib
+
+bash-4.3$ ./queens 4
+A solution exists for N = 4
+.Q..
+...Q
+Q...
+..Q.
+
+****
+ 3d
+****
+
+bash-4.3$ file ./queens
+./queens: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=b863e91f2187ea8d6f24b46e534debee94bf6c93, not stripped
+bash-4.3$ ldd ./queens
+	linux-vdso.so.1 (0x00007ffd1b9b6000)
+	libqueens.so => /student/214/lib/libqueens.so (0x00002b43e4ff4000)
+	libstdc++.so.6 => /usr/lib64/libstdc++.so.6 (0x00002b43e51f7000)
+	libm.so.6 => /usr/lib64/libm.so.6 (0x00002b43e5503000)
+	libgcc_s.so.1 => /usr/lib64/libgcc_s.so.1 (0x00002b43e5809000)
+	libc.so.6 => /usr/lib64/libc.so.6 (0x00002b43e5a20000)
+	/lib64/ld-linux-x86-64.so.2 (0x00002b43e4dd2000)
+
+The queens library is obtained from /student/214/lib/libqueens.so

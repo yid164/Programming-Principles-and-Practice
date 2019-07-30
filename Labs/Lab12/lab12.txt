@@ -1,0 +1,234 @@
+# Student Name: Yinhsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+
+1.
+(a)
+yid164@tux7:~/214lab12> cut -f 3 country_data.txt > cutout.txt
+yid164@tux7:~/214lab12> awk '{print $3}' country_data.txt > awkout.txt
+yid164@tux7:~/214lab12> diff cutout.txt awkout.txt 
+21c21
+< 85
+---
+> 255
+32c32
+< 74
+---
+> 12
+34c34
+< 
+---
+> 416
+37,38c37,38
+< 973   92
+< 
+---
+> 973
+> 28
+66c66
+< 
+---
+> 663
+79c79
+< 
+---
+> 1424
+89c89
+< -
+---
+> 2
+
+(b)
+yid164@tux7:~/214lab12> awk -v OFS="\t" '$1=$1' country_data.txt > country_data_cleaned.txt
+yid164@tux7:~/214lab12> cut -f 3 country_data_cleaned.txt > cutout.txt
+yid164@tux7:~/214lab12> awk '{print $3}' country_data_cleaned.txt > awkout.txt
+yid164@tux7:~/214lab12> diff cutout.txt awkout.txt 
+yid164@tux7:~/214lab12> 
+
+(c)
+yid164@tux7:~/214lab12> awk '$4>50 {print $1}' country_data_cleaned.txt 
+Albania
+Algeria
+Antigua_and_Barbuda
+Argentina
+Armenia
+Azerbaijan
+Bahamas
+Bahrain
+Barbados
+Belarus
+Belize
+Bolivia
+Bosnia_and_Herzegovina
+Botswana
+Brazil
+Brunei_Darussalam
+Bulgaria
+Cambodia
+Cameroon
+Cape_Verde
+Chile
+China
+Colombia
+Comoros
+Congo
+Congo,_Democratic_Republic_of_the
+Costa_Rica
+Croatia
+Cuba
+Cyprus
+Djibouti
+Dominican_Republic
+Ecuador
+Egypt
+El_Salvador
+Equatorial_Guinea
+Eritrea
+Estonia
+Fiji
+Gabon
+Georgia
+Ghana
+Greece
+Guatemala
+Guyana
+Honduras
+Hungary
+India
+Indonesia
+Iran_(Islamic_Republic_of)
+Israel
+Italy
+Jamaica
+Jordan
+Kazakhstan
+Kenya
+Korea,_Democratic_People's_Republic_of
+Korea,_Republic_of
+Kuwait
+Lao_People's_Democratic_Republic
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libyan_Arab_Jamahiriya
+Lithuania
+Madagascar
+Malawi
+Malaysia
+Maldives
+Malta
+Mauritius
+Mexico
+Micronesia_(Federated_States_of)
+Moldova,_Republic_of
+Mongolia
+Myanmar
+Namibia
+Nicaragua
+Nigeria
+Oman
+Panama
+Papua_New_Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Russian_Federation
+Rwanda
+Samoa
+Saudi_Arabia
+Serbia_and_Montenegro
+Singapore
+Slovakia
+Slovenia
+South_Africa
+Spain
+Sri_Lanka
+Sudan
+Suriname
+Swaziland
+Syrian_Arab_Republic
+Tajikistan
+Tanzania,_United_Republic_of
+Thailand
+The_former_Yugoslav_Republic_of_Macedonia
+Togo
+Trinidad_and_Tobago
+Tunisia
+Turkey
+Uganda
+Ukraine
+United_Arab_Emirates
+Uruguay
+Uzbekistan
+Venezuela
+Viet_Nam
+Zambia
+Zimbabwe
+
+(d)
+yid164@tux7:~/214lab12> awk -f population.awk country_data_cleaned.txt 
+Albania
+Algeria
+Andorra
+Angola
+Antigua_and_Barbuda
+Argentina
+Armenia
+Australia
+Austria
+
+(e)
+yid164@tux7:~/214lab12> awk -v OFS='\t' '$(NF+1) = ($3)/(($2)/2) ' country_data_cleaned.txt > country_data_birthrate.txt 
+yid164@tux7:~/214lab12> cut -f 5 country_data_birthrate.txt >cutout.txt
+yid164@tux7:~/214lab12> awk '{print $5}' country_data_birthrate.txt >awkout.txt
+yid164@tux7:~/214lab12> diff cutout.txt awkout.txt
+yid164@tux7:~/214lab12>  
+
+2.
+yid164@tux7:~/214lab12> date|awk -v OFS='\n' '{print "Month: "$2,"Year: "$6}'
+Month: Dec
+Year: 2016
+3.
+(a)
+yid164@tux7:~/214lab12> g++ -c -I /student/214/include queens.cc
+yid164@tux7:~/214lab12> ls
+country_data.txt  queens.cc  queens.cc~  queens.o
+
+(b)
+yid164@tux7:~/214lab12> g++ -o queens queens.o /student/214/lib/libqueens.so
+yid164@tux7:~/214lab12> ls
+country_data.txt  queens*  queens.cc  queens.o
+
+(c)
+yid164@tux7:~/214lab12> ./queens
+./queens: error while loading shared libraries: libqueens.so: cannot open shared object file: No such file or directory
+yid164@tux7:~/214lab12> echo $LD_LIBARARY_PATH
+
+yid164@tux7:~/214lab12> echo $LD_LIBRARY_PATH
+:/usr/lib:/usr/local/lib
+yid164@tux7:~/214lab12> LD_LIBRARY_PATH=:/usr/lib:/usr/local/lib:/student/214/lib
+yid164@tux7:~/214lab12> ./queens 4
+A solution exists for N = 4
+.Q..
+...Q
+Q...
+..Q.
+
+(d)
+yid164@tux7:~/214lab12> file queens
+queens: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0c2255fcc5189f85e52b6fa71166233daafd3d21, not stripped
+yid164@tux7:~/214lab12> ldd queens
+	linux-vdso.so.1 (0x00007fffca869000)
+	libqueens.so => /student/214/lib/libqueens.so (0x00007f4e9185e000)
+	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007f4e91552000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f4e9124c000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f4e91035000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f4e90c81000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f4e91a61000)
