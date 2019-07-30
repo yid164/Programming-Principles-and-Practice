@@ -1,0 +1,129 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT214 T01
+
+1.
+yid164@tux6:~> df /student
+Filesystem        Size  Used Avail Use% Mounted on
+csfiles:/student  6.0T  2.2T  3.5T  39% /tmp_mnt/student
+
+2.
+yid164@tux7:~> ls
+214bin/   Contacts/   Downloads/  Music/	Searches/
+214lab1/  Desktop/    Favorites/  Pictures/	Templates/
+214lab2/  Documents/  Links/	  Saved Games/	Videos/
+yid164@tux7:~> mkdir 214lab3
+yid164@tux7:~> cd 214lab3
+yid164@tux7:~/214lab3> 
+
+(a)
+yid164@tux7:~/214lab3> mkdir dir1 dir2
+yid164@tux7:~/214lab3> ls
+dir1/  dir2/
+yid164@tux7:~/214lab3> cd dir1
+yid164@tux7:~/214lab3/dir1> cp /etc/passwd ../dir2
+yid164@tux7:~/214lab3/dir1> ls ../dir2
+passwd
+
+(b)
+yid164@tux7:~/214lab3> pwd
+/student/yid164/214lab3
+yid164@tux7:~/214lab3> ls
+dir1/  dir2/
+yid164@tux7:~/214lab3> tar -cvzf dirs.tar.gz ./dir1 ./dir2
+./dir1/
+./dir2/
+./dir2/passwd
+yid164@tux7:~/214lab3> echo Super\ \Man1>favourite_movies.tar.gz
+
+(c)
+yid164@tux7:~/214lab3> file dirs.tar.gz favourite_movies.tar.gz
+dirs.tar.gz:             gzip compressed data, last modified: Sun Sep 25 22:07:37 2016, from Unix
+favourite_movies.tar.gz: ASCII text
+
+3.
+(a)
+yid164@tux6:~/214lab3> w >wtemp.txt
+yid164@tux6:~/214lab3> cat wtemp.txt
+ 12:41:11 up 142 days, 23:14,  4 users,  load average: 53.25, 51.61, 52.36
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+pdn844   pts/27    Fri22    2days  0.12s  0.12s -bash
+yid164   pts/32    12:40    6.00s  0.07s  0.00s w
+frr434   pts/36    12:16    6.00s  1.70s  1.53s vim ex7.12c.doc
+frr434   pts/44    12:32   52.00s  0.09s  0.09s -bash
+yid164@tux6:~/214lab3> tail -n 4 wtemp.txt >w.txt
+yid164@tux6:~/214lab3> cat wtemp.txt
+ 12:41:11 up 142 days, 23:14,  4 users,  load average: 53.25, 51.61, 52.36
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+pdn844   pts/27    Fri22    2days  0.12s  0.12s -bash
+yid164   pts/32    12:40    6.00s  0.07s  0.00s w
+frr434   pts/36    12:16    6.00s  1.70s  1.53s vim ex7.12c.doc
+frr434   pts/44    12:32   52.00s  0.09s  0.09s -bash
+yid164@tux6:~/214lab3> cat w.txt
+pdn844   pts/27    Fri22    2days  0.12s  0.12s -bash
+yid164   pts/32    12:40    6.00s  0.07s  0.00s w
+frr434   pts/36    12:16    6.00s  1.70s  1.53s vim ex7.12c.doc
+frr434   pts/44    12:32   52.00s  0.09s  0.09s -bash
+
+(b)
+yid164@tux6:~/214lab3> cut -f 1 -d ' ' *w.txt
+pdn844
+yid164
+frr434
+frr434
+
+(c)
+yid164@tux6:~/214lab3> tr -s ' ' <w.txt>w1.txt
+yid164@tux6:~/214lab3> cat w1.txt
+pdn844 pts/27 Fri22 2days 0.12s 0.12s -bash
+yid164 pts/32 12:40 6.00s 0.07s 0.00s w
+frr434 pts/36 12:16 6.00s 1.70s 1.53s vim ex7.12c.doc
+frr434 pts/44 12:32 52.00s 0.09s 0.09s -bash
+
+(d)
+yid164@tux6:~/214lab3> sort -r -k 5 w1.txt
+frr434 pts/36 12:16 6.00s 1.70s 1.53s vim ex7.12c.doc
+pdn844 pts/27 Fri22 2days 0.12s 0.12s -bash
+frr434 pts/44 12:32 52.00s 0.09s 0.09s -bash
+yid164 pts/32 12:40 6.00s 0.07s 0.00s w
+
+4.
+yid164@tux6:~/214lab3> cd ..
+yid164@tux6:~> cp /student/machome/yid164/Downloads/usernames.txt  ./214lab3
+yid164@tux6:~> cd 214lab3
+yid164@tux6:~/214lab3> ls
+dir1/  dir2/  dirs.tar.gz  favourite_movies.tar.gz  usernames.txt  w.txt  w1.txt  wtemp.txt
+yid164@tux6:~/214lab3> man sort
+
+[2]+  Stopped                 man sort
+yid164@tux6:~/214lab3> logout
+There are stopped jobs.
+yid164@tux6:~/214lab3> sort -c usernames.txt
+sort: usernames.txt:19: disorder: nobody
+yid164@tux6:~/214lab3> sort -d usernames.txt 1>temp_usernames.txt
+yid164@tux6:~/214lab3> diff temp_usernames.txt usernames.txt
+18d17
+< nobody
+19a19
+> nobody
+
+5.
+char *line;
+bool is_quote;
+if (*line == ‘“‘)
+{
+	is_quote = true;
+}
+else
+{
+	is_quote = false;
+}
+
+6.
+int i = 0;
+while (i <= arraySize -1)
+{
+	array[i+1} = 1;
+	i++;
+}
