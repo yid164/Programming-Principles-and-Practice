@@ -1,0 +1,21 @@
+# Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+This version_buddy.sh is the script to change the name from ‘_’ to ‘.’
+
+Firstly, I made then errorMessage like the example text log’s, and I divided name, major, minor, and ext. Then I checked user input.
+
+If user input number is not 1, output the errorMessage.
+If user input contains “-v” option, output the errorMessage.
+If user input is the file name that has already in the project, output the errorMessage.
+If user input is a direction, output the errorMessage
+
+Then, I was trying to check user input’s specific, if name not only contains letter, number and ‘-‘, output thn errorMessage
+
+If major is not only contains 1-2 digits number, output the errorMessage
+If the minor is not only in 1-2 digits number, output the errorMessage
+If the ext is not fine, output the errorMessage
+If everything is fine, but the file is not exist, output the errorMessage
+If everything is fine from all above, using the mv to change the file name

@@ -1,0 +1,64 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+yid164@tux5:~/abc/nsid> cat question_2_in.txt 
+ajk449 brt381
+ajk44
+
+449ajk
+ajkajk449
+ajk4449
+yid164@tux5:~/abc/nsid> sh nsid < question_2_in.txt 
+ajk449 is valid
+brt381 is valid
+"ajk44" is not valid
+"449ajk" is not valid
+"ajkajk449" is not valid
+"ajk4449" is not valid
+yid164@tux5:~/abc/nsid> echo $?
+1
+yid164@tux5:~/abc/nsid> 
+yid164@tux5:~/abc/nsid> cat question_2_in.txt | sh nsid
+ajk449 is valid
+brt381 is valid
+"ajk44" is not valid
+"449ajk" is not valid
+"ajkajk449" is not valid
+"ajk4449" is not valid
+yid164@tux5:~/abc/nsid> echo $?
+1
+yid164@tux5:~/abc/nsid> 
+yid164@tux5:~/abc/nsid> ./nsid ssd001
+ssd001 is valid
+yid164@tux5:~/abc/nsid> echo $?
+0
+yid164@tux5:~/abc/nsid> ./nsid ajk449 yid164
+ajk449 is valid
+yid164 is valid
+yid164@tux5:~/abc/nsid> echo $?
+0
+yid164@tux5:~/abc/nsid> 
+yid164@tux5:~/abc/nsid> ./nsid 
+foobar
+foo123
+"foobar" is not valid
+foo123 is valid
+yid164@tux5:~/abc/nsid> echo $?
+0
+yid164@tux5:~/abc/nsid> 
+yid164@tux5:~/abc/nsid> ./nsid `cat question_2_in.txt`
+ajk449 is valid
+brt381 is valid
+"ajk44"is not valid
+"449ajk"is not valid
+"ajkajk449"is not valid
+"ajk4449"is not valid
+yid164@tux5:~/abc/nsid> 
+yid164@tux5:~/abc/nsid> ./nsid "invalid NSID"
+"invalid NSID"is not valid
+yid164@tux5:~/abc/nsid> 
+yid164@tux5:~/abc/nsid> ./nsid S7N5C9 <<< ssd001
+"S7N5C9"is not valid

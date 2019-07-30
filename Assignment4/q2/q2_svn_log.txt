@@ -1,0 +1,49 @@
+# Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+------------------------------------------------------------------------
+r58 | yid164@USASK.CA | 2016-12-02 10:22:17 -0600 (Fri, 02 Dec 2016) | 1 line
+
+I think I do not need .sh for ext, because everything in linux is a file, and also I have aready defined this is a shell script in the file, so I think it will be work to display in svn server
+------------------------------------------------------------------------
+r57 | yid164@USASK.CA | 2016-12-02 10:11:05 -0600 (Fri, 02 Dec 2016) | 1 line
+
+this is the version that include function script and warpper script in one file, I have test all the assignment required, and everything works, should be the newest version, and my best version
+------------------------------------------------------------------------
+r56 | yid164@USASK.CA | 2016-12-02 10:07:46 -0600 (Fri, 02 Dec 2016) | 1 line
+
+This is the fixed version that I made, I made them together and retest all thing, everything is good, and my ouput is same as question_2_log.txt
+------------------------------------------------------------------------
+r55 | yid164@USASK.CA | 2016-12-02 10:05:31 -0600 (Fri, 02 Dec 2016) | 2 lines
+
+I need to delete the previous version becasue I did wrong 2 files, and I will make them together after..
+
+------------------------------------------------------------------------
+r54 | yid164@USASK.CA | 2016-12-02 10:04:01 -0600 (Fri, 02 Dec 2016) | 2 lines
+
+I did the wrong thing, becasue I separate the file to 2 files, and when I checked the e-mail, the teacher said we have to do only one file, so this is should not be the final version of my file, so I decide delete all the previous file I upload, and I am going to make them together and reupload the file.
+
+------------------------------------------------------------------------
+r52 | yid164@USASK.CA | 2016-12-01 15:57:14 -0600 (Thu, 01 Dec 2016) | 1 line
+
+This should be the final version that I will hand in
+------------------------------------------------------------------------
+r51 | yid164@USASK.CA | 2016-12-01 15:55:19 -0600 (Thu, 01 Dec 2016) | 1 line
+
+This is the best version still now, and it is runable as same as the log file, I have already added some comments on it, and everything should be fine
+------------------------------------------------------------------------
+r50 | yid164@USASK.CA | 2016-12-01 15:33:56 -0600 (Thu, 01 Dec 2016) | 1 line
+
+ I think it is the final version that the is_nsid.sh, I just sparated the is_nsid.sh and nisd.sh, and only is_nsid function in the .sh file, and I have added some comment on it
+------------------------------------------------------------------------
+r46 | yid164@USASK.CA | 2016-11-30 21:38:34 -0600 (Wed, 30 Nov 2016) | 1 line
+
+ This is the first version of my assignment 4 question 2, some bugs on it, I just try if the function is_nsid() is correct
+------------------------------------------------------------------------
+r45 | yid164@USASK.CA | 2016-11-30 21:33:06 -0600 (Wed, 30 Nov 2016) | 2 lines
+
+This is the project for assignment 4 question2 
+
+------------------------------------------------------------------------

@@ -1,0 +1,63 @@
+# Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+------------------------------------------------------------------------
+r61 | yid164@USASK.CA | 2016-12-02 10:46:38 -0600 (Fri, 02 Dec 2016) | 1 line
+
+This is the final version I made still now, runable and every test same as the requirement, and I have added comments on it, I might change in the furture, but now, it is still good
+------------------------------------------------------------------------
+r60 | yid164@USASK.CA | 2016-12-02 10:44:24 -0600 (Fri, 02 Dec 2016) | 1 line
+
+This is the final version I think for the assignment, and I have already test it, the log test is same as question_1_log.txt, everything same, and it should be my best version still now
+------------------------------------------------------------------------
+r53 | yid164@USASK.CA | 2016-12-01 16:03:25 -0600 (Thu, 01 Dec 2016) | 1 line
+
+ This is the best version still now, it is runable like the log file, and have fixed something bugs from previous version, and should be the final version
+------------------------------------------------------------------------
+r49 | yid164@USASK.CA | 2016-12-01 14:09:50 -0600 (Thu, 01 Dec 2016) | 1 line
+
+this is the first version that I wrote, might be some bugs on it, and I did not write comment on it, I will try to fix them and upload the best version to svn
+------------------------------------------------------------------------
+r48 | yid164@USASK.CA | 2016-12-01 14:02:54 -0600 (Thu, 01 Dec 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r47 | yid164@USASK.CA | 2016-12-01 14:02:05 -0600 (Thu, 01 Dec 2016) | 2 lines
+
+I just got wrong mind, I thought we have to create dirctories like last assignment, so I created the trunk and tags, but after I read requirement again, I thought I do not have to do that, so I just want to delete these directories
+
+------------------------------------------------------------------------
+r44 | yid164@USASK.CA | 2016-11-30 11:54:07 -0600 (Wed, 30 Nov 2016) | 1 line
+
+this is the runable verison that I made, I found lots of bugs in previous version, I fixed them and add some new funcions in, also I wrote some comments on it 
+------------------------------------------------------------------------
+r43 | yid164@USASK.CA | 2016-11-29 20:35:20 -0600 (Tue, 29 Nov 2016) | 1 line
+
+The first version for the version_buddy.sh  something can run, but it has bugs need to fix
+------------------------------------------------------------------------
+r42 | yid164@USASK.CA | 2016-11-29 20:33:24 -0600 (Tue, 29 Nov 2016) | 1 line
+
+the new folder for assignment
+------------------------------------------------------------------------
+r41 | yid164@USASK.CA | 2016-11-29 20:32:46 -0600 (Tue, 29 Nov 2016) | 1 line
+
+Wrong name~~
+------------------------------------------------------------------------
+r40 | yid164@USASK.CA | 2016-11-29 20:31:19 -0600 (Tue, 29 Nov 2016) | 1 line
+
+new folder for assignment
+------------------------------------------------------------------------
+r39 | yid164@USASK.CA | 2016-11-29 20:23:59 -0600 (Tue, 29 Nov 2016) | 1 line
+
+the tags dir for assignment 4
+------------------------------------------------------------------------
+r38 | yid164@USASK.CA | 2016-11-29 20:23:38 -0600 (Tue, 29 Nov 2016) | 1 line
+
+the trunk dir for assignment 4
+------------------------------------------------------------------------
+r37 | yid164@USASK.CA | 2016-11-29 20:23:13 -0600 (Tue, 29 Nov 2016) | 1 line
+
+the project dir for assignment 4
+------------------------------------------------------------------------

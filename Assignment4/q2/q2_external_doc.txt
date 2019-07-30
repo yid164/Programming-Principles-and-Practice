@@ -1,0 +1,8 @@
+# Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+The nsid.sh contains 2 parts. 1st part include a function called is_nsid(), I use it to determine if the nsid is correct, by divided name and number and check if them are only 3 digits and only contains letters and number in the name and number
+
+Then, I did the wrapper scrpit to make the input, and try to know the input number from user, if the input number is 0, let user to go the standard input,. If the input is 1, try to know if the input is a file or just a nsid. if the input is more than 1, to read all the input from user, and check them by is_nsid function in all above situation.

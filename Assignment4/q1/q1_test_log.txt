@@ -1,0 +1,79 @@
+# Name: Yinsheng Dong
+# Student Number: 11148648
+# NSID: yid164
+# Lecture Section: CMPT 214
+
+yid164@tux5:~/abc/version_buddy> ./version_buddy 
+usage: version_buddy <filename>\n where <filename> is of the form Name_Major_Minor.Extension\n and does not contain any whitespace
+yid164@tux5:~/abc/version_buddy> echo $?
+1
+yid164@tux5:~/abc/version_buddy> ./version_buddy -v n-queens_1_0.cc
+usage: version_buddy <filename>\n where <filename> is of the form Name_Major_Minor.Extension\n and does not contain any whitespace
+yid164@tux5:~/abc/version_buddy> echo $?
+1
+yid164@tux5:~/abc/version_buddy> ./
+.svn/          version_buddy  
+yid164@tux5:~/abc/version_buddy> ./version_buddy -v
+option -v not recognized
+usage: version_buddy <filename>\n where <filename> is of the form Name_Major_Minor.Extension\n and does not contain any whitespace
+yid164@tux5:~/abc/version_buddy> ./version_buddy a.b c.d
+usage: version_buddy <filename>\n where <filename> is of the form Name_Major_Minor.Extension\n and does not contain any whitespace
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy fool_.txt
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> echo $?
+2
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy .pdf
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> echo $?
+2
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy "foo bar_1_4.c"
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> echo $?
+2
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy foo_1_1_1.txt
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy foo_1_2.     
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> 
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture Section: CMPT 214
+
+
+
+yid164@tux5:~/abc/version_buddy> ./version_buddy foo_bar_3.txt
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> ./version_buddy foo_3_new.txt
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy 'foo*_1_1.txt'
+filename is not well-formed
+yid164@tux5:~/abc/version_buddy> ./version_buddy ~/foo*_1_1.txt
+file must be in the current working directory
+yid164@tux5:~/abc/version_buddy> echo $?
+2
+yid164@tux5:~/abc/version_buddy> ./version_buddy n-queens_1_0.cc 
+n-queens_1_0.cc must exist in the current working directory
+yid164@tux5:~/abc/version_buddy> echo $?
+3
+yid164@tux5:~/abc/version_buddy> 
+yid164@tux5:~/abc/version_buddy> ./version_buddy n-queens_1_4.c 
+n-queens_1_4.c must exist in the current working directory
+yid164@tux5:~/abc/version_buddy> ls
+foo_1_1.txt   foobar_1_4.c     vecalc_1_0.cc
+foobar.1.4.c  n-queens_2_1.cc  version_buddy*
+yid164@tux5:~/abc/version_buddy> ./version_buddy foobar_1_4.c 
+destination file foobar.1.4.c already exists
+yid164@tux5:~/abc/version_buddy> echo $?
+4
+yid164@tux5:~/abc/version_buddy> ./version_buddy foo_1_1.txt  
+foo_1_1.txt -> foo.1.1.txt
+yid164@tux5:~/abc/version_buddy> ls
+foo.1.1.txt   foobar_1_4.c     vecalc_1_0.cc
+foobar.1.4.c  n-queens_2_1.cc  version_buddy*
